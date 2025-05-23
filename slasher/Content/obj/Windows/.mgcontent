@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/AIR ATTACK.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/ATTACK 1.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/ATTACK 2.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/ATTACK 3.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/bkgr1_scaled_6x.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/bkgr1.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/bkgr2.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/bkgr3.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/DASH NO WIND IMPACT.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/DASH NO WIND.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/DEATH.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/DEFEND-hurt.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/DEFEND.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/Flag.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/hitboxes.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/HURT.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/IDLE.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/JUMP-FALL.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/JUMP-START.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/JUMP-TRANSITION.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/JUMP.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/map_template.tmx</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/map.tmx</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/Objects.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/Props.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/RUN.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/slasher_map.tmx</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/slasher.tmx</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/SPECIAL ATTACK.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/Tileset.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/Trees.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/WIND.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>

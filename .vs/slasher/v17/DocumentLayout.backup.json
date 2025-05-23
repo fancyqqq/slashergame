@@ -1,0 +1,131 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\eldm5\\source\\repos\\slasher\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5591EDA8-DC34-4158-B132-8D96B976D33C}|slasher\\slasher.csproj|c:\\users\\eldm5\\source\\repos\\slasher\\slasher\\content\\content.mgcb||{3EC6CBD1-65BD-4B26-A758-3B207D048872}",
+      "RelativeMoniker": "D:0:0:{5591EDA8-DC34-4158-B132-8D96B976D33C}|slasher\\slasher.csproj|solutionrelative:slasher\\content\\content.mgcb||{3EC6CBD1-65BD-4B26-A758-3B207D048872}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5591EDA8-DC34-4158-B132-8D96B976D33C}|slasher\\slasher.csproj|c:\\users\\eldm5\\source\\repos\\slasher\\slasher\\slasher.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{5591EDA8-DC34-4158-B132-8D96B976D33C}|slasher\\slasher.csproj|solutionrelative:slasher\\slasher.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5591EDA8-DC34-4158-B132-8D96B976D33C}|slasher\\slasher.csproj|c:\\users\\eldm5\\source\\repos\\slasher\\slasher\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5591EDA8-DC34-4158-B132-8D96B976D33C}|slasher\\slasher.csproj|solutionrelative:slasher\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5591EDA8-DC34-4158-B132-8D96B976D33C}|slasher\\slasher.csproj|c:\\users\\eldm5\\source\\repos\\slasher\\slasher\\app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{5591EDA8-DC34-4158-B132-8D96B976D33C}|slasher\\slasher.csproj|solutionrelative:slasher\\app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5591EDA8-DC34-4158-B132-8D96B976D33C}|slasher\\slasher.csproj|c:\\users\\eldm5\\source\\repos\\slasher\\slasher\\content\\run.png||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{5591EDA8-DC34-4158-B132-8D96B976D33C}|slasher\\slasher.csproj|solutionrelative:slasher\\content\\run.png||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5591EDA8-DC34-4158-B132-8D96B976D33C}|slasher\\slasher.csproj|c:\\users\\eldm5\\source\\repos\\slasher\\slasher\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5591EDA8-DC34-4158-B132-8D96B976D33C}|slasher\\slasher.csproj|solutionrelative:slasher\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5591EDA8-DC34-4158-B132-8D96B976D33C}|slasher\\slasher.csproj|c:\\users\\eldm5\\source\\repos\\slasher\\slasher\\animation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5591EDA8-DC34-4158-B132-8D96B976D33C}|slasher\\slasher.csproj|solutionrelative:slasher\\animation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\eldm5\\source\\repos\\slasher\\slasher\\Player.cs",
+              "RelativeDocumentMoniker": "slasher\\Player.cs",
+              "ToolTip": "C:\\Users\\eldm5\\source\\repos\\slasher\\slasher\\Player.cs",
+              "RelativeToolTip": "slasher\\Player.cs",
+              "ViewState": "AgIAAF8BAAAAAAAAAAAiwHMBAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-19T14:22:43.935Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Content.mgcb",
+              "DocumentMoniker": "C:\\Users\\eldm5\\source\\repos\\slasher\\slasher\\Content\\Content.mgcb",
+              "RelativeDocumentMoniker": "slasher\\Content\\Content.mgcb",
+              "ToolTip": "C:\\Users\\eldm5\\source\\repos\\slasher\\slasher\\Content\\Content.mgcb",
+              "RelativeToolTip": "slasher\\Content\\Content.mgcb",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-19T09:48:06.082Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RUN.png - PNG [1536x96, 32-\u0440\u0430\u0437\u0440\u044F\u0434\u043D\u043E\u0435, PNG]",
+              "DocumentMoniker": "C:\\Users\\eldm5\\source\\repos\\slasher\\slasher\\Content\\RUN.png",
+              "RelativeDocumentMoniker": "slasher\\Content\\RUN.png",
+              "ToolTip": "C:\\Users\\eldm5\\source\\repos\\slasher\\slasher\\Content\\RUN.png - PNG [1536x96, 32-\u0440\u0430\u0437\u0440\u044F\u0434\u043D\u043E\u0435, PNG]",
+              "RelativeToolTip": "slasher\\Content\\RUN.png - PNG [1536x96, 32-\u0440\u0430\u0437\u0440\u044F\u0434\u043D\u043E\u0435, PNG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2025-04-18T19:54:31.559Z",
+              "EditorCaption": " - PNG [1536x96, 32-\u0440\u0430\u0437\u0440\u044F\u0434\u043D\u043E\u0435, PNG]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "app.manifest",
+              "DocumentMoniker": "C:\\Users\\eldm5\\source\\repos\\slasher\\slasher\\app.manifest",
+              "RelativeDocumentMoniker": "slasher\\app.manifest",
+              "ToolTip": "C:\\Users\\eldm5\\source\\repos\\slasher\\slasher\\app.manifest",
+              "RelativeToolTip": "slasher\\app.manifest",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001203|",
+              "WhenOpened": "2025-04-18T19:43:30.989Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Game1.cs",
+              "DocumentMoniker": "C:\\Users\\eldm5\\source\\repos\\slasher\\slasher\\Game1.cs",
+              "RelativeDocumentMoniker": "slasher\\Game1.cs",
+              "ToolTip": "C:\\Users\\eldm5\\source\\repos\\slasher\\slasher\\Game1.cs",
+              "RelativeToolTip": "slasher\\Game1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T19:29:01.576Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Animation.cs",
+              "DocumentMoniker": "C:\\Users\\eldm5\\source\\repos\\slasher\\slasher\\Animation.cs",
+              "RelativeDocumentMoniker": "slasher\\Animation.cs",
+              "ToolTip": "C:\\Users\\eldm5\\source\\repos\\slasher\\slasher\\Animation.cs",
+              "RelativeToolTip": "slasher\\Animation.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAIwAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T19:28:54.95Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "slasher.csproj",
+              "DocumentMoniker": "C:\\Users\\eldm5\\source\\repos\\slasher\\slasher\\slasher.csproj",
+              "RelativeDocumentMoniker": "slasher\\slasher.csproj",
+              "ToolTip": "C:\\Users\\eldm5\\source\\repos\\slasher\\slasher\\slasher.csproj",
+              "RelativeToolTip": "slasher\\slasher.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-04-18T11:30:40.922Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

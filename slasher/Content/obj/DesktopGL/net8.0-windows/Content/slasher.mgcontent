@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>C:/Users/eldm5/source/repos/slasher/slasher/Content/slasher.tmx</SourceFile>
+  <SourceTime>2025-04-29T05:00:04+05:00</SourceTime>
+  <DestFile>C:/Users/eldm5/source/repos/slasher/slasher/Content/bin/DesktopGL/Content/slasher.xnb</DestFile>
+  <DestTime>2025-05-16T19:30:08.5856128+05:00</DestTime>
+  <Importer>TiledMapImporter</Importer>
+  <ImporterTime>2025-04-23T19:42:52+05:00</ImporterTime>
+  <Processor>TiledMapProcessor</Processor>
+  <ProcessorTime>2025-04-23T19:42:52+05:00</ProcessorTime>
+  <Dependencies>
+    <string>C:\Users\eldm5\source\repos\slasher\slasher\Content\Tileset.png</string>
+    <string>C:\Users\eldm5\source\repos\slasher\slasher\Content\Trees.png</string>
+    <string>C:\Users\eldm5\source\repos\slasher\slasher\Content\bkgr1.png</string>
+    <string>C:\Users\eldm5\source\repos\slasher\slasher\Content\bkgr2.png</string>
+    <string>C:\Users\eldm5\source\repos\slasher\slasher\Content\bkgr3.png</string>
+    <string>C:\Users\eldm5\source\repos\slasher\slasher\Content\Props.png</string>
+    <string>C:\Users\eldm5\source\repos\slasher\slasher\Content\Objects.png</string>
+  </Dependencies>
+  <BuildAsset>
+    <string>C:/Users/eldm5/source/repos/slasher/slasher/Content/bin/DesktopGL/Content/Tileset_1.xnb</string>
+    <string>C:/Users/eldm5/source/repos/slasher/slasher/Content/bin/DesktopGL/Content/Trees_0.xnb</string>
+    <string>C:/Users/eldm5/source/repos/slasher/slasher/Content/bin/DesktopGL/Content/bkgr1_0.xnb</string>
+    <string>C:/Users/eldm5/source/repos/slasher/slasher/Content/bin/DesktopGL/Content/bkgr2_0.xnb</string>
+    <string>C:/Users/eldm5/source/repos/slasher/slasher/Content/bin/DesktopGL/Content/bkgr3_0.xnb</string>
+    <string>C:/Users/eldm5/source/repos/slasher/slasher/Content/bin/DesktopGL/Content/Props_0.xnb</string>
+    <string>C:/Users/eldm5/source/repos/slasher/slasher/Content/bin/DesktopGL/Content/Objects_0.xnb</string>
+  </BuildAsset>
+  <BuildOutput />
+</PipelineBuildEvent>

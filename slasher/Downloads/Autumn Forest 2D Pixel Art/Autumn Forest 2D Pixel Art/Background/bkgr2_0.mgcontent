@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>C:/Users/eldm5/Downloads/Autumn Forest 2D Pixel Art/Autumn Forest 2D Pixel Art/Background/bkgr2.png</SourceFile>
+  <SourceTime>2024-05-05T19:01:31.5753123+05:00</SourceTime>
+  <DestFile>C:/Users/eldm5/source/repos/slasher/slasher/Content/bin/DesktopGL/Content/../../../../../Downloads/Autumn Forest 2D Pixel Art/Autumn Forest 2D Pixel Art/Background/bkgr2_0.xnb</DestFile>
+  <DestTime>2025-04-29T04:56:25.7939945+05:00</DestTime>
+  <Importer>TextureImporter</Importer>
+  <ImporterTime>2025-04-05T15:10:54+05:00</ImporterTime>
+  <Processor>TextureProcessor</Processor>
+  <ProcessorTime>2025-04-05T15:10:54+05:00</ProcessorTime>
+  <Parameters>
+    <Key>ColorKeyColor</Key>
+    <Value>0,0,0,0</Value>
+  </Parameters>
+  <Parameters>
+    <Key>ColorKeyEnabled</Key>
+    <Value>True</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

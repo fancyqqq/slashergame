@@ -1,0 +1,65 @@
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\slasher.exe
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\slasher.deps.json
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\slasher.runtimeconfig.json
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\slasher.dll
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\slasher.pdb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\Microsoft.CodeAnalysis.dll
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\MonoGame.Framework.dll
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\SharpDX.dll
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\SharpDX.Direct2D1.dll
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\SharpDX.Direct3D11.dll
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\SharpDX.Direct3D9.dll
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\SharpDX.DXGI.dll
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\SharpDX.Mathematics.dll
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\SharpDX.MediaFoundation.dll
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\SharpDX.XAudio2.dll
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\SharpDX.XInput.dll
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\runtimes\debian-x64\native\libuv.so
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\runtimes\fedora-x64\native\libuv.so
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\runtimes\opensuse-x64\native\libuv.so
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\runtimes\osx\native\libuv.dylib
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\runtimes\rhel-x64\native\libuv.so
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\runtimes\win7-arm\native\libuv.dll
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\runtimes\win7-x64\native\libuv.dll
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\runtimes\win7-x86\native\libuv.dll
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\runtimes\linux-x64\native\libSDL2-2.0.so.0
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\runtimes\linux-x64\native\libopenal.so.1
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\runtimes\osx\native\libSDL2.dylib
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\runtimes\osx\native\libopenal.1.dylib
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\runtimes\win-x64\native\SDL2.dll
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\runtimes\win-x64\native\soft_oal.dll
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\runtimes\win-x86\native\SDL2.dll
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\runtimes\win-x86\native\soft_oal.dll
+C:\Users\eldm5\source\repos\slasher\slasher\obj\Debug\net6.0-windows\slasher.csproj.AssemblyReference.cache
+C:\Users\eldm5\source\repos\slasher\slasher\obj\Debug\net6.0-windows\slasher.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eldm5\source\repos\slasher\slasher\obj\Debug\net6.0-windows\slasher.AssemblyInfoInputs.cache
+C:\Users\eldm5\source\repos\slasher\slasher\obj\Debug\net6.0-windows\slasher.AssemblyInfo.cs
+C:\Users\eldm5\source\repos\slasher\slasher\obj\Debug\net6.0-windows\slasher.csproj.CoreCompileInputs.cache
+C:\Users\eldm5\source\repos\slasher\slasher\obj\Debug\net6.0-windows\slasher.csproj.Up2Date
+C:\Users\eldm5\source\repos\slasher\slasher\obj\Debug\net6.0-windows\slasher.dll
+C:\Users\eldm5\source\repos\slasher\slasher\obj\Debug\net6.0-windows\refint\slasher.dll
+C:\Users\eldm5\source\repos\slasher\slasher\obj\Debug\net6.0-windows\slasher.pdb
+C:\Users\eldm5\source\repos\slasher\slasher\obj\Debug\net6.0-windows\slasher.genruntimeconfig.cache
+C:\Users\eldm5\source\repos\slasher\slasher\obj\Debug\net6.0-windows\ref\slasher.dll
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\Content\IDLE.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\Content\RUN.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\Content\JUMP-FALL.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\Content\JUMP-START.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\Content\JUMP-TRANSITION.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\Content\JUMP.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\Content\ATTACK 1.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\Content\ATTACK 2.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\Content\ATTACK 3.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\Content\DEATH.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\Content\DEFEND.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\Content\HURT.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\Content\DEFEND-hurt.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\Content\SPECIAL ATTACK.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\Content\DASH NO WIND.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\Content\WIND.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\Content\DASH NO WIND IMPACT.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\Content\AIR ATTACK.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\Content\shuriken.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net6.0-windows\Content\THROW.xnb

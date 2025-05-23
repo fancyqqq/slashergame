@@ -1,0 +1,78 @@
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\slasher.exe
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\slasher.deps.json
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\slasher.runtimeconfig.json
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\slasher.dll
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\slasher.pdb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Autofac.dll
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\MonoGame.Extended.dll
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\MonoGame.Extended.Content.Pipeline.dll
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\MonoGame.Framework.dll
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\runtimes\linux-x64\native\libSDL2-2.0.so.0
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\runtimes\win-x64\native\SDL2.dll
+C:\Users\eldm5\source\repos\slasher\slasher\obj\Debug\net8.0-windows\slasher.csproj.AssemblyReference.cache
+C:\Users\eldm5\source\repos\slasher\slasher\obj\Debug\net8.0-windows\slasher.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eldm5\source\repos\slasher\slasher\obj\Debug\net8.0-windows\slasher.AssemblyInfoInputs.cache
+C:\Users\eldm5\source\repos\slasher\slasher\obj\Debug\net8.0-windows\slasher.AssemblyInfo.cs
+C:\Users\eldm5\source\repos\slasher\slasher\obj\Debug\net8.0-windows\slasher.csproj.CoreCompileInputs.cache
+C:\Users\eldm5\source\repos\slasher\slasher\obj\Debug\net8.0-windows\slasher.csproj.Up2Date
+C:\Users\eldm5\source\repos\slasher\slasher\obj\Debug\net8.0-windows\slasher.dll
+C:\Users\eldm5\source\repos\slasher\slasher\obj\Debug\net8.0-windows\refint\slasher.dll
+C:\Users\eldm5\source\repos\slasher\slasher\obj\Debug\net8.0-windows\slasher.pdb
+C:\Users\eldm5\source\repos\slasher\slasher\obj\Debug\net8.0-windows\slasher.genruntimeconfig.cache
+C:\Users\eldm5\source\repos\slasher\slasher\obj\Debug\net8.0-windows\ref\slasher.dll
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\AIR ATTACK.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\ATTACK 1.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\ATTACK 2.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\ATTACK 3.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\DASH NO WIND IMPACT.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\DASH NO WIND.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\DEATH.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\DEFEND-hurt.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\DEFEND.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\HURT.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\IDLE.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\JUMP-FALL.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\JUMP-START.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\JUMP-TRANSITION.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\JUMP.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\RUN.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\shuriken.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\slasher.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\SPECIAL ATTACK.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\THROW.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\WIND.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\NVorbis.dll
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\runtimes\android-arm\native\libopenal.so
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\runtimes\android-arm64\native\libopenal.so
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\runtimes\android-x64\native\libopenal.so
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\runtimes\android-x86\native\libopenal.so
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\runtimes\ios-arm64\native\libopenal.dylib
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\runtimes\iossimulator-arm64\native\libopenal.dylib
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\runtimes\iossimulator-x64\native\libopenal.dylib
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\runtimes\linux-x64\native\libopenal.so
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\runtimes\osx\native\libopenal.dylib
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\runtimes\win-x64\native\openal.dll
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\runtimes\osx\native\libSDL2-2.0.0.dylib
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\map.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\Tileset.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\Flag.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\Objects.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\Props.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\Trees.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\bkgr1_0.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\bkgr2_0.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\bkgr3_0.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\Objects_0.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\Props_0.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\Tileset_0.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\Trees_0.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\bkgr1_scaled_6x.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\bkgr1_scaled_6x_0.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\map_template.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\slasher_map.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\Tileset_1.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\bkgr1.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\bkgr2.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\bkgr3.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\hitboxes.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\hitboxes_0.xnb
