@@ -11,7 +11,7 @@ public class Run : PlayerBaseState
     
     public override void OnEnter()
     {
-        System.Diagnostics.Debug.WriteLine("попа");
+        System.Diagnostics.Debug.WriteLine("check2");
     }
 
     public override void OnExit()

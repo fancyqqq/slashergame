@@ -10,7 +10,7 @@ public class Idle : PlayerBaseState
     
     public override void OnEnter()
     {
-        System.Diagnostics.Debug.WriteLine("член");
+        System.Diagnostics.Debug.WriteLine("check1");
     }
 
     public override void OnExit()
