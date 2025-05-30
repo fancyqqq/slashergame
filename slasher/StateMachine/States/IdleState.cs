@@ -1,29 +1,17 @@
-﻿using Microsoft.Xna.Framework.Input;
+﻿using Microsoft.Xna.Framework;
 
 namespace slasher;
 
-public class Idle : PlayerBaseState
+public class IdleState : PlayerBaseState
 {
-    public Idle(PlayerStateData data, TestPlayer testPlayer, StateMachineInitialization machineInitialization) : base(data, testPlayer, machineInitialization)
+    public IdleState(PlayerStateData data, Player player, StateMachineInitialization machineInitialization)
+        : base(data, player, machineInitialization)
     {
     }
-    
+
     public override void OnEnter()
     {
-        System.Diagnostics.Debug.WriteLine("check1");
-    }
-
-    public override void OnExit()
-    {
-        
-    }
-
-    public override void OnUpdateBehaviour(KeyboardState ks)
-    {
-        if (ks.IsKeyDown(Keys.Space))
-        {
-            _machineInitialization.PlayerStateMachine.SwitchStates<Run>();
-        }
-        System.Diagnostics.Debug.WriteLine("попа2");
+        Player.SetStateAndAnimation(PlayerState.Idle, "idle");
+        Data.Velocity = new Vector2(0, Data.Velocity.Y);
     }
 }

@@ -76,3 +76,4 @@ C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\bkg
 C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\bkgr3.xnb
 C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\hitboxes.xnb
 C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\hitboxes_0.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\obj\Debug\net8.0-windows\slasher.sourcelink.json

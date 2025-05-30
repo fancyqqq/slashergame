@@ -1,171 +1,275 @@
+using System;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Content;
+using MonoGame.Extended.Tiled;
 
-namespace slasher
+namespace slasher;
+
+// Определение перечисления PlayerState
+public enum PlayerState
 {
-    public enum PlayerState
+    Idle,
+    Run,
+    Jump,
+    Dash,
+    Defend,
+    HurtBlock,
+    Attack1,
+    Attack2,
+    Attack3,
+    AirAttack,
+    SpecialAttack
+}
+
+public class Player
+{
+    private Vector2 _position = new(300, 200);
+    private Vector2 _velocity = Vector2.Zero;
+    private PlayerState _state = PlayerState.Idle;
+    private readonly AnimationComponent _animation;
+    private readonly PlayerStateData _stateData;
+    private GameTime _gameTime;
+
+    public Rectangle BoundingBox
     {
-        Idle,
-        Run,
-        Jump,
-        Attack1,
-        Attack2,
-        Attack3,
-        Dash,
-        Defend,
-        HurtBlock,
-        SpecialAttack,
-        AirAttack
+        get
+        {
+            var hitbox = _animation.CurrentAnimation.Hitbox;
+            int hitboxX = (int)_position.X + hitbox.X;
+
+            if (!_stateData.IsFacingRight)
+            {
+                int centerOffset = (hitbox.X + hitbox.Width / 2) - ((96 / 2) * 3);
+                hitboxX -= 2 * centerOffset;
+            }
+
+            return new Rectangle(
+                hitboxX,
+                (int)_position.Y + hitbox.Y,
+                hitbox.Width,
+                hitbox.Height
+            );
+        }
     }
 
-    public class Player
+    public Vector2 Position
     {
-        private Vector2 _position = new(300, 200);
-        private Vector2 _velocity = Vector2.Zero;
-        private PlayerState _state = PlayerState.Idle;
-        private const int SpriteCanvasSize = 96;
-        private const int SpriteScale = 3;
-        private const int SpriteScreenCenterX = (SpriteCanvasSize / 2) * SpriteScale;
+        get => _position;
+        set => _position = value;
+    }
 
-        private readonly MovementComponent _movement;
-        private readonly JumpComponent _jump;
-        private readonly AttackComponent _attack;
-        private readonly DashComponent _dash;
-        private readonly BlockComponent _block;
-        private readonly AnimationComponent _animation;
-        private readonly PhysicsComponent _physics;
+    public Vector2 Velocity
+    {
+        get => _velocity;
+        set => _velocity = value;
+    }
 
-        public Rectangle BoundingBox
+    public PlayerState State => _state;
+    public PlayerStateData StateData => _stateData;
+    public bool IsJumping => _state == PlayerState.Jump;
+    public bool IsDashing => _state == PlayerState.Dash;
+    public bool IsFacingRight => _stateData.IsFacingRight;
+    public Animation CurrentAnimation => _animation.CurrentAnimation;
+    public GameTime GameTime => _gameTime;
+
+    public Player(ContentManager content, GraphicsDevice graphicsDevice, TiledMapTileLayer collisionLayer, int tileSize, int groundY)
+    {
+        _stateData = new PlayerStateData
         {
-            get
+            GroundY = groundY,
+            CollisionLayer = collisionLayer,
+            TileSize = tileSize
+        };
+        var animations = AnimationLoader.LoadAnimations(content, graphicsDevice);
+        _animation = new AnimationComponent(animations);
+    }
+
+    public void Update(GameTime gameTime, KeyboardState ks, MouseState ms)
+    {
+        _gameTime = gameTime;
+        _stateData.IsGrounded = _position.Y >= _stateData.GroundY;
+        _stateData.Velocity = _velocity;
+
+        if (!_stateData.CanDash)
+        {
+            _stateData.DashCooldownTimer -= 1f / 60f;
+            if (_stateData.DashCooldownTimer <= 0f)
+                _stateData.CanDash = true;
+        }
+
+        ApplyPhysics(gameTime);
+
+        _velocity = _stateData.Velocity;
+        _animation.UpdateAnimationState(_state, _velocity, IsJumping, IsDashing);
+        _animation.Update(gameTime);
+    }
+
+    private void ApplyPhysics(GameTime gameTime)
+    {
+        float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+        if (!_stateData.IsGrounded)
+        {
+            float gravity = _stateData.Velocity.Y > 0 ? _stateData.Gravity * _stateData.FallGravityMultiplier : _stateData.Gravity;
+            _stateData.Velocity.Y += gravity * dt;
+        }
+
+        Vector2 proposedPosition = _position + _stateData.Velocity * dt;
+        Rectangle current = BoundingBox;
+
+        Rectangle futureBoxX = new Rectangle(
+            (int)(current.X + _stateData.Velocity.X * dt),
+            current.Y,
+            current.Width,
+            current.Height
+        );
+
+        Rectangle futureBoxY = new Rectangle(
+            current.X,
+            (int)(current.Y + _stateData.Velocity.Y * dt),
+            current.Width,
+            current.Height
+        );
+
+        Rectangle groundSensor = new Rectangle(
+            current.X,
+            current.Bottom,
+            current.Width,
+            2
+        );
+
+        bool isGroundBeneath = IsColliding(groundSensor);
+
+        if (IsColliding(futureBoxX))
+        {
+            if (_stateData.Velocity.X > 0)
             {
-                var hitbox = _animation.CurrentAnimation.Hitbox;
-
-                int hitboxX = (int)_position.X + hitbox.X;
-
-                if (!_movement.IsFacingRight)
-                {
-                    int centerOffset = (hitbox.X + hitbox.Width / 2) - SpriteScreenCenterX;
-                    hitboxX -= 2 * centerOffset;
-                }
-                
-                return new Rectangle(
-                    hitboxX,
-                    (int)_position.Y + hitbox.Y,
-                    hitbox.Width,
-                    hitbox.Height
-                );
+                float tileX = (float)Math.Floor(futureBoxX.Right / (float)_stateData.TileSize) * _stateData.TileSize;
+                float offsetX = current.Right - _position.X;
+                _position.X = tileX - offsetX;
+                _stateData.Velocity.X = 0;
+            }
+            else if (_stateData.Velocity.X < 0)
+            {
+                float tileX = (float)Math.Ceiling(futureBoxX.Left / (float)_stateData.TileSize) * _stateData.TileSize;
+                float offsetX = current.Left - _position.X;
+                _position.X = tileX - offsetX;
+                _stateData.Velocity.X = 0;
             }
         }
-
-        public Vector2 Position
+        else
         {
-            get => _position;
-            set => _position = value;
+            _position.X = proposedPosition.X;
         }
 
-        public Vector2 Velocity
+        if (IsColliding(futureBoxY))
         {
-            get => _velocity;
-            set => _velocity = value;
+            if (_stateData.Velocity.Y > 0)
+            {
+                float tileY = (float)Math.Floor(futureBoxY.Bottom / (float)_stateData.TileSize) * _stateData.TileSize;
+                float offsetY = current.Top - _position.Y;
+                _position.Y = tileY - current.Height - offsetY;
+                _stateData.Velocity.Y = 0;
+                _stateData.IsGrounded = true;
+            }
+            else if (_stateData.Velocity.Y < 0)
+            {
+                float tileY = (float)Math.Ceiling(futureBoxY.Top / (float)_stateData.TileSize) * _stateData.TileSize;
+                float offsetY = current.Top - _position.Y;
+                _position.Y = tileY - offsetY;
+                _stateData.Velocity.Y = 0;
+            }
         }
-
-        public PlayerState State => _state;
-
-        public bool IsJumping
+        else
         {
-            get => _jump.IsJumping;
-            set => _jump.IsJumping = value;
+            _position.Y = proposedPosition.Y;
+            _stateData.IsGrounded = isGroundBeneath;
         }
+    }
 
-        public bool IsDashing => _dash.IsDashing;
-        public bool IsFacingRight => _movement.IsFacingRight;
-        
-        public Animation CurrentAnimation => _animation.CurrentAnimation;
+    private bool IsColliding(Rectangle rect)
+    {
+        int left = rect.Left / _stateData.TileSize;
+        int right = (rect.Right - 1) / _stateData.TileSize;
+        int top = rect.Top / _stateData.TileSize;
+        int bottom = (rect.Bottom - 1) / _stateData.TileSize;
 
-        public void DebugDraw(SpriteBatch spriteBatch, Texture2D pixel)
+        for (int y = top; y <= bottom; y++)
         {
-            spriteBatch.Draw(pixel, BoundingBox, Color.Red * 0.5f);
+            for (int x = left; x <= right; x++)
+            {
+                if (x < 0 || y < 0 || x >= _stateData.CollisionLayer.Width || y >= _stateData.CollisionLayer.Height)
+                    continue;
+
+                var tile = _stateData.CollisionLayer.GetTile((ushort)x, (ushort)y);
+                if (tile.GlobalIdentifier != 0)
+                    return true;
+            }
         }
+        return false;
+    }
 
-        public Player(ContentManager content, GraphicsDevice graphicsDevice, CollisionMap collisionMap, int groundY)
+    public void Draw(SpriteBatch spriteBatch)
+    {
+        if (_stateData.WindPlaying)
         {
-            var animations = AnimationLoader.LoadAnimations(content, graphicsDevice);
-            _animation = new AnimationComponent(animations);
-            _movement = new MovementComponent(this);
-            _jump = new JumpComponent(this);
-            _attack = new AttackComponent(this);
-            _dash = new DashComponent(this);
-            _block = new BlockComponent(this);
-            _physics = new PhysicsComponent(this, collisionMap, groundY);
-        }
-
-        public void Update(GameTime gameTime, KeyboardState ks, MouseState ms)
-        {
-            _dash.Update(ks, gameTime);
-            _block.Update(ms);
-            _attack.Update(ms);
-            _movement.Update(ks);
-            _jump.Update(ks, gameTime);
-            _attack.UpdatePhases();
-            _block.UpdatePhases();
-            _physics.Update(gameTime);
-
-            _animation.UpdateAnimationState(_state, _velocity, _jump.IsJumping, _dash.IsDashing);
-            _animation.Update(gameTime);
-        }
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            _dash.Draw(spriteBatch);
-
             spriteBatch.Draw(
-                _animation.CurrentAnimation.CurrentFrame,
-                _position,
+                _stateData.WindEffect.CurrentFrame,
+                _stateData.WindPosition,
                 null,
                 Color.White,
                 0f,
                 Vector2.Zero,
                 3f,
-                _movement.IsFacingRight ? SpriteEffects.None : SpriteEffects.FlipHorizontally,
+                _stateData.WindFacingRight ? SpriteEffects.None : SpriteEffects.FlipHorizontally,
                 0f);
         }
 
-        public void SetState(PlayerState state)
-        {
-            _state = state;
-        }
+        spriteBatch.Draw(
+            _animation.CurrentAnimation.CurrentFrame,
+            _position,
+            null,
+            Color.White,
+            0f,
+            Vector2.Zero,
+            3f,
+            _stateData.IsFacingRight ? SpriteEffects.None : SpriteEffects.FlipHorizontally,
+            0f);
+    }
 
-        public void SetAnimation(string key, bool loop = true)
-        {
-            _animation.SetAnimation(key, loop);
-        }
+    public void SetState(PlayerState state)
+    {
+        _state = state;
+    }
 
-        public void SetStateAndAnimation(PlayerState newState, string animationName, bool loop = true)
-        {
-            _animation.SetAnimation(animationName, loop);
-            _state = newState;
-        }
+    public void SetAnimation(string key, bool loop = true)
+    {
+        _animation.SetAnimation(key, loop);
+    }
 
-        public Animation GetAnimation(string key)
-        {
-            return _animation.GetAnimation(key);
-        }
+    public void SetStateAndAnimation(PlayerState newState, string animationName, bool loop = true)
+    {
+        _animation.SetAnimation(animationName, loop);
+        _state = newState;
+    }
 
+    public Animation GetAnimation(string key)
+    {
+        return _animation.GetAnimation(key);
+    }
 
-        public void TriggerBlockHurt()
-        {
-            _block.TriggerBlockHurt();
-        }
-        
-        public bool IsBlockedAbove()
-        {
-            var box = BoundingBox;
-            var ceilingSensor = new Rectangle(box.X, box.Y - 2, box.Width, 2);
-            return _physics.CheckCollisionBox(ceilingSensor);
-        }
+    public void TriggerBlockHurt()
+    {
+        _stateData.IsDefendPressed = false;
+        _state = PlayerState.HurtBlock;
+    }
 
+    public bool IsBlockedAbove()
+    {
+        var box = BoundingBox;
+        var ceilingSensor = new Rectangle(box.X, box.Y - 2, box.Width, 2);
+        return IsColliding(ceilingSensor);
     }
 }

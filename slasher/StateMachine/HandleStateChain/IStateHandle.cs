@@ -1,6 +1,10 @@
-﻿namespace slasher.HandleStateChain;
+﻿using Microsoft.Xna.Framework;
 
-public class IStateHandle
+namespace slasher.HandleStateChain;
+
+public interface IStateHandle
 {
-    
+    StateMachineInitialization StateMachine { get; }
+    bool CanHandle(GameTime gameTime);
+    void Handle();
 }
