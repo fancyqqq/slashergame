@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -83,16 +84,60 @@ public class Game1 : Game
     }
 
     protected override void Draw(GameTime gameTime)
-    {
-        GraphicsDevice.Clear(Color.CornflowerBlue);
-        
-        _mapRenderer.Draw();
-        
-        _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-        _player.Draw(_spriteBatch);
-        //_player.DebugDraw(_spriteBatch, _debugPixel);
-        _spriteBatch.End();
+{
+    GraphicsDevice.Clear(Color.CornflowerBlue);
 
-        base.Draw(gameTime);
+    _mapRenderer.Draw();
+
+    _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+
+    _player.Draw(_spriteBatch);
+
+    DrawRectHollow(_spriteBatch, _player.BoundingBox, 2, Color.Red);
+
+    var predictiveBoxes = new List<Rectangle>
+    {
+        new Rectangle(_player.BoundingBox.Left - _player.StateData.TileSize, _player.BoundingBox.Y, _player.StateData.TileSize, _player.BoundingBox.Height),
+        new Rectangle(_player.BoundingBox.Right, _player.BoundingBox.Y, _player.StateData.TileSize, _player.BoundingBox.Height),
+        new Rectangle(_player.BoundingBox.X, _player.BoundingBox.Top - _player.StateData.TileSize, _player.BoundingBox.Width, _player.StateData.TileSize),
+        new Rectangle(_player.BoundingBox.X, _player.BoundingBox.Bottom, _player.BoundingBox.Width, _player.StateData.TileSize),
+        new Rectangle(_player.BoundingBox.Left - _player.StateData.TileSize, _player.BoundingBox.Top - _player.StateData.TileSize, _player.StateData.TileSize, _player.StateData.TileSize),
+        new Rectangle(_player.BoundingBox.Right, _player.BoundingBox.Top - _player.StateData.TileSize, _player.StateData.TileSize, _player.StateData.TileSize)
+    };
+    foreach (var box in predictiveBoxes)
+    {
+        DrawRectHollow(_spriteBatch, box, 1, Color.Green);
     }
+
+    _spriteBatch.End();
+
+    base.Draw(gameTime);
+}
+
+public void DrawRectHollow(SpriteBatch spriteBatch, Rectangle rect, int thickness, Color color)
+{
+    Texture2D rectTexture = new Texture2D(GraphicsDevice, 1, 1);
+    rectTexture.SetData(new[] { color });
+
+    spriteBatch.Draw(
+        rectTexture,
+        new Rectangle(rect.X, rect.Y, rect.Width, thickness),
+        color
+    );
+    spriteBatch.Draw(
+        rectTexture,
+        new Rectangle(rect.X, rect.Bottom - thickness, rect.Width, thickness),
+        color
+    );
+    spriteBatch.Draw(
+        rectTexture,
+        new Rectangle(rect.X, rect.Y, thickness, rect.Height),
+        color
+    );
+    spriteBatch.Draw(
+        rectTexture,
+        new Rectangle(rect.Right - thickness, rect.Y, thickness, rect.Height),
+        color
+    );
+}
 }

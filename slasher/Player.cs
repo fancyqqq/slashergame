@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -7,7 +8,6 @@ using MonoGame.Extended.Tiled;
 
 namespace slasher;
 
-// Определение перечисления PlayerState
 public enum PlayerState
 {
     Idle,
@@ -74,7 +74,8 @@ public class Player
     public Animation CurrentAnimation => _animation.CurrentAnimation;
     public GameTime GameTime => _gameTime;
 
-    public Player(ContentManager content, GraphicsDevice graphicsDevice, TiledMapTileLayer collisionLayer, int tileSize, int groundY)
+    public Player(ContentManager content, GraphicsDevice graphicsDevice, TiledMapTileLayer collisionLayer, int tileSize,
+        int groundY)
     {
         _stateData = new PlayerStateData
         {
@@ -89,7 +90,6 @@ public class Player
     public void Update(GameTime gameTime, KeyboardState ks, MouseState ms)
     {
         _gameTime = gameTime;
-        _stateData.IsGrounded = _position.Y >= _stateData.GroundY;
         _stateData.Velocity = _velocity;
 
         if (!_stateData.CanDash)
@@ -112,81 +112,110 @@ public class Player
 
         if (!_stateData.IsGrounded)
         {
-            float gravity = _stateData.Velocity.Y > 0 ? _stateData.Gravity * _stateData.FallGravityMultiplier : _stateData.Gravity;
+            float gravity = _stateData.Velocity.Y > 0
+                ? _stateData.Gravity * _stateData.FallGravityMultiplier
+                : _stateData.Gravity;
             _stateData.Velocity.Y += gravity * dt;
         }
 
         Vector2 proposedPosition = _position + _stateData.Velocity * dt;
         Rectangle current = BoundingBox;
 
-        Rectangle futureBoxX = new Rectangle(
-            (int)(current.X + _stateData.Velocity.X * dt),
-            current.Y,
-            current.Width,
-            current.Height
-        );
+        List<Rectangle> predictiveBoxes = new List<Rectangle>
+        {
+            current,
+            new Rectangle(current.Left - _stateData.TileSize, current.Y, _stateData.TileSize, current.Height),
+            new Rectangle(current.Right, current.Y, _stateData.TileSize, current.Height),
+            new Rectangle(current.X, current.Top - _stateData.TileSize, current.Width, _stateData.TileSize),
+            new Rectangle(current.X, current.Bottom, current.Width, _stateData.TileSize),
+            new Rectangle(current.Left - _stateData.TileSize, current.Top - _stateData.TileSize, _stateData.TileSize,
+                _stateData.TileSize),
+            new Rectangle(current.Right, current.Top - _stateData.TileSize, _stateData.TileSize, _stateData.TileSize)
+        };
 
-        Rectangle futureBoxY = new Rectangle(
-            current.X,
-            (int)(current.Y + _stateData.Velocity.Y * dt),
-            current.Width,
-            current.Height
-        );
-
-        Rectangle groundSensor = new Rectangle(
-            current.X,
-            current.Bottom,
-            current.Width,
-            2
-        );
-
+        Rectangle groundSensor = new Rectangle(current.X, current.Bottom, current.Width, 2);
         bool isGroundBeneath = IsColliding(groundSensor);
 
-        if (IsColliding(futureBoxX))
+        bool xCollision = false;
+        foreach (var box in predictiveBoxes)
         {
-            if (_stateData.Velocity.X > 0)
+            Rectangle futureBoxX = new Rectangle(
+                (int)(box.X + _stateData.Velocity.X * dt),
+                box.Y,
+                box.Width,
+                box.Height
+            );
+            if (IsColliding(futureBoxX))
             {
-                float tileX = (float)Math.Floor(futureBoxX.Right / (float)_stateData.TileSize) * _stateData.TileSize;
-                float offsetX = current.Right - _position.X;
-                _position.X = tileX - offsetX;
-                _stateData.Velocity.X = 0;
-            }
-            else if (_stateData.Velocity.X < 0)
-            {
-                float tileX = (float)Math.Ceiling(futureBoxX.Left / (float)_stateData.TileSize) * _stateData.TileSize;
-                float offsetX = current.Left - _position.X;
-                _position.X = tileX - offsetX;
-                _stateData.Velocity.X = 0;
+                xCollision = true;
+                if (_stateData.Velocity.X > 0)
+                {
+                    float tileX = (float)Math.Floor(futureBoxX.Right / (float)_stateData.TileSize) *
+                                  _stateData.TileSize;
+                    float offsetX = current.Right - _position.X;
+                    _position.X = tileX - offsetX - 1;
+                    _stateData.Velocity.X = 0;
+                }
+                else if (_stateData.Velocity.X < 0)
+                {
+                    float tileX = (float)Math.Ceiling(futureBoxX.Left / (float)_stateData.TileSize) *
+                                  _stateData.TileSize;
+                    float offsetX = current.Left - _position.X;
+                    _position.X = tileX - offsetX + 1;
+                    _stateData.Velocity.X = 0;
+                }
+
+                break;
             }
         }
-        else
+
+        if (!xCollision)
         {
             _position.X = proposedPosition.X;
         }
 
-        if (IsColliding(futureBoxY))
+        bool yCollision = false;
+        foreach (var box in predictiveBoxes)
         {
-            if (_stateData.Velocity.Y > 0)
+            Rectangle futureBoxY = new Rectangle(
+                box.X,
+                (int)(box.Y + _stateData.Velocity.Y * dt),
+                box.Width,
+                box.Height
+            );
+            if (IsColliding(futureBoxY))
             {
-                float tileY = (float)Math.Floor(futureBoxY.Bottom / (float)_stateData.TileSize) * _stateData.TileSize;
-                float offsetY = current.Top - _position.Y;
-                _position.Y = tileY - current.Height - offsetY;
-                _stateData.Velocity.Y = 0;
-                _stateData.IsGrounded = true;
-            }
-            else if (_stateData.Velocity.Y < 0)
-            {
-                float tileY = (float)Math.Ceiling(futureBoxY.Top / (float)_stateData.TileSize) * _stateData.TileSize;
-                float offsetY = current.Top - _position.Y;
-                _position.Y = tileY - offsetY;
-                _stateData.Velocity.Y = 0;
+                yCollision = true;
+                if (_stateData.Velocity.Y > 0)
+                {
+                    float tileY = (float)Math.Floor(futureBoxY.Bottom / (float)_stateData.TileSize) *
+                                  _stateData.TileSize;
+                    float offsetY = current.Top - _position.Y;
+                    _position.Y = tileY - current.Height - offsetY;
+                    _stateData.Velocity.Y = 0;
+                    _stateData.IsGrounded = true;
+                }
+                else if (_stateData.Velocity.Y < 0)
+                {
+                    float tileY = (float)Math.Ceiling(futureBoxY.Top / (float)_stateData.TileSize) *
+                                  _stateData.TileSize;
+                    float offsetY = current.Top - _position.Y;
+                    _position.Y = tileY - offsetY;
+                    _stateData.Velocity.Y = 0;
+                }
+
+                break;
             }
         }
-        else
+
+        if (!yCollision)
         {
             _position.Y = proposedPosition.Y;
             _stateData.IsGrounded = isGroundBeneath;
         }
+
+        System.Diagnostics.Debug.WriteLine(
+            $"IsGrounded: {_stateData.IsGrounded}, Position.Y: {_position.Y}, Velocity.Y: {_stateData.Velocity.Y}");
     }
 
     private bool IsColliding(Rectangle rect)
@@ -196,6 +225,7 @@ public class Player
         int top = rect.Top / _stateData.TileSize;
         int bottom = (rect.Bottom - 1) / _stateData.TileSize;
 
+        bool collisionDetected = false;
         for (int y = top; y <= bottom; y++)
         {
             for (int x = left; x <= right; x++)
@@ -204,13 +234,14 @@ public class Player
                     continue;
 
                 var tile = _stateData.CollisionLayer.GetTile((ushort)x, (ushort)y);
-                if (tile.GlobalIdentifier != 0)
+                if (tile.GlobalIdentifier == 66)
+                {
                     return true;
+                }
             }
         }
         return false;
     }
-
     public void Draw(SpriteBatch spriteBatch)
     {
         if (_stateData.WindPlaying)

@@ -7,7 +7,7 @@ public class StateMachineInitialization
 {
     public StateMachine PlayerStateMachine { get; private set; }
     public Player Player { get; private set; }
-    public PlayerStateData PlayerStateData { get; private set; }
+    public PlayerStateData PlayerStateData => Player.StateData;
     public StateHandleChain StateHandleChain { get; private set; }
 
     public StateMachineInitialization(Player player)
@@ -18,40 +18,33 @@ public class StateMachineInitialization
 
     private void Initialize()
     {
-        PlayerStateData = new PlayerStateData
-        {
-            CollisionLayer = Player.StateData.CollisionLayer,
-            TileSize = Player.StateData.TileSize,
-            GroundY = Player.StateData.GroundY
-        };
-        
         PlayerStateMachine = new StateMachine(
-            new IdleState(PlayerStateData, Player, this),
-            new RunState(PlayerStateData, Player, this),
-            new JumpState(PlayerStateData, Player, this),
-            new DashState(PlayerStateData, Player, this),
-            new DefendState(PlayerStateData, Player, this),
-            new HurtBlockState(PlayerStateData, Player, this),
-            new Attack1State(PlayerStateData, Player, this),
-            new Attack2State(PlayerStateData, Player, this),
-            new Attack3State(PlayerStateData, Player, this),
-            new AirAttackState(PlayerStateData, Player, this),
-            new SpecialAttackState(PlayerStateData, Player, this)
+            new IdleState(Player.StateData, Player, this),
+            new RunState(Player.StateData, Player, this),
+            new JumpState(Player.StateData, Player, this),
+            new DashState(Player.StateData, Player, this),
+            new DefendState(Player.StateData, Player, this),
+            new HurtBlockState(Player.StateData, Player, this),
+            new Attack1State(Player.StateData, Player, this),
+            new Attack2State(Player.StateData, Player, this),
+            new Attack3State(Player.StateData, Player, this),
+            new AirAttackState(Player.StateData, Player, this),
+            new SpecialAttackState(Player.StateData, Player, this)
         );
 
         StateHandleChain = new StateHandleChain(new List<IStateHandle>
         {
-            new HurtBlockStateHandler(this, PlayerStateData),
-            new JumpStateHandler(this, PlayerStateData, Player),
-            new DashStateHandler(this, PlayerStateData),
-            new DefendStateHandler(this, PlayerStateData),
-            new Attack1StateHandler(this, PlayerStateData),
-            new Attack2StateHandler(this, PlayerStateData),
-            new Attack3StateHandler(this, PlayerStateData),
-            new AirAttackStateHandler(this, PlayerStateData),
-            new SpecialAttackStateHandler(this, PlayerStateData),
-            new RunStateHandler(this, PlayerStateData),
-            new IdleStateHandler(this, PlayerStateData)
+            new HurtBlockStateHandler(this, Player.StateData),
+            new JumpStateHandler(this, Player.StateData, Player),
+            new DashStateHandler(this, Player.StateData),
+            new DefendStateHandler(this, Player.StateData),
+            new Attack1StateHandler(this, Player.StateData),
+            new Attack2StateHandler(this, Player.StateData),
+            new Attack3StateHandler(this, Player.StateData),
+            new AirAttackStateHandler(this, Player.StateData),
+            new SpecialAttackStateHandler(this, Player.StateData),
+            new RunStateHandler(this, Player.StateData),
+            new IdleStateHandler(this, Player.StateData)
         });
 
         PlayerStateMachine.SwitchStates<IdleState>();
