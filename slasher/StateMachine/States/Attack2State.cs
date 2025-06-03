@@ -28,7 +28,10 @@ public class Attack2State : PlayerBaseState
             if (Data.AttackQueued)
                 MachineInitialization.PlayerStateMachine.SwitchStates<Attack3State>();
             else
+            {
                 MachineInitialization.PlayerStateMachine.SwitchStates<IdleState>();
-        }
+                MachineInitialization.PlayerStateMachine.SwitchStates<RunState>();
+            }
+        }       
     }
 }

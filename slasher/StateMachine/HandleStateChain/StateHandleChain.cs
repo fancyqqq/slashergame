@@ -13,18 +13,18 @@ public class StateHandleChain
         _handles = handles;
     }
 
-    public void HandleState(GameTime gameTime)
+    public void HandleState()
     {
-        _handles.FirstOrDefault(h => h.CanHandle(gameTime))?.Handle();
+        _handles.FirstOrDefault(h => h.CanHandle())?.Handle();
     }
 
-    public void HandleState<T>(GameTime gameTime) where T : IStateHandle
+    public void HandleState<T>() where T : IStateHandle
     {
-        _handles.FirstOrDefault(h => h.GetType() == typeof(T) && h.CanHandle(gameTime))?.Handle();
+        _handles.FirstOrDefault(h => h.GetType() == typeof(T) && h.CanHandle())?.Handle();
     }
 
-    public bool CanHandleState<T>(GameTime gameTime) where T : IStateHandle
+    public bool CanHandleState<T>() where T : IStateHandle
     {
-        return _handles.Any(h => h.GetType() == typeof(T) && h.CanHandle(gameTime));
+        return _handles.Any(h => h.GetType() == typeof(T) && h.CanHandle());
     }
 }

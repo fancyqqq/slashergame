@@ -13,7 +13,7 @@ public class DefendStateHandler : IStateHandle
         _stateData = stateData;
     }
 
-    public bool CanHandle(GameTime gameTime)
+    public bool CanHandle()
     {
         return _stateData.IsDefendPressed && _stateData.IsGrounded &&
                StateMachine.Player.State is not (PlayerState.Jump or PlayerState.Dash or PlayerState.HurtBlock or

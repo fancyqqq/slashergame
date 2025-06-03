@@ -13,7 +13,7 @@ public class SpecialAttackStateHandler : IStateHandle
         _stateData = stateData;
     }
 
-    public bool CanHandle(GameTime gameTime)
+    public bool CanHandle()
     {
         bool isPressed = _stateData.IsSpecialPressed && !_stateData.SpecialStarted;
         return isPressed && _stateData.IsGrounded &&

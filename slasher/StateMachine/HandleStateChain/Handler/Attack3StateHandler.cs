@@ -13,7 +13,7 @@ public class Attack3StateHandler : IStateHandle
         _stateData = stateData;
     }
 
-    public bool CanHandle(GameTime gameTime)
+    public bool CanHandle()
     {
         bool isPressed = _stateData.IsAttackPressed && !_stateData.AttackPressedLastFrame;
         _stateData.AttackPressedLastFrame = _stateData.IsAttackPressed;

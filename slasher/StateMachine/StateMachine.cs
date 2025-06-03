@@ -20,6 +20,8 @@ public class StateMachine
 
     public void SwitchStates<TState>() where TState : IState
     {
+        if (currentStates is TState newState)
+            return;
         isUpdate = false;
         TryExitStates();
         GetNewState<TState>();
@@ -46,11 +48,5 @@ public class StateMachine
     private TState GetState<TState>() where TState : IState
     {
         return (TState)_states[typeof(TState)];
-    }
-
-    public void Update(KeyboardState ks)
-    {
-        if (isUpdate)
-            currentStates?.OnUpdateBehaviour(ks);
     }
 }

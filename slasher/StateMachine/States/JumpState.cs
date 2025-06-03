@@ -25,6 +25,7 @@ public class JumpState : PlayerBaseState
 
     public override void OnUpdateBehaviour(KeyboardState ks)
     {
+        base.OnUpdateBehaviour(ks);
         switch (Data.CurrentJumpPhase)
         {
             case JumpPhase.Start:

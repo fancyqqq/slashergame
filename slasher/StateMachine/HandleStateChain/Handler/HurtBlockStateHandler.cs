@@ -13,7 +13,7 @@ public class HurtBlockStateHandler : IStateHandle
         _stateData = stateData;
     }
 
-    public bool CanHandle(GameTime gameTime)
+    public bool CanHandle()
     {
         return StateMachine.Player.State == PlayerState.HurtBlock;
     }

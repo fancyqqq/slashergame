@@ -16,6 +16,7 @@ public class AirAttackState : PlayerBaseState
 
     public override void OnUpdateBehaviour(KeyboardState ks)
     {
+        base.OnUpdateBehaviour(ks);
         if (Player.CurrentAnimation.IsFinished)
         {
             MachineInitialization.PlayerStateMachine.SwitchStates<JumpState>();

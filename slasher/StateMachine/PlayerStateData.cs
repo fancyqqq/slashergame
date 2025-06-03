@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using MonoGame.Extended.Tiled;
 
 namespace slasher;
@@ -21,6 +22,8 @@ public class PlayerStateData
     public float Gravity = 1200f;
     public float FallGravityMultiplier = 2f;
     // dash
+    static public GameTime gameTime = new GameTime();
+    public float TotalTime = (float)gameTime.TotalGameTime.TotalSeconds;
     public bool CanDash = true;
     public float DashTime;
     public float DashDuration = 0.25f;
@@ -38,10 +41,24 @@ public class PlayerStateData
     public bool DPressedLastFrame;
     public const float DoubleTapInterval = 0.5f;
     // attack
+    public event Action OnAttackPressed;
+    public event Action OnAttackJustPressed;
     public bool AttackQueued;
     public bool AttackPressedLastFrame;
     public bool SpecialStarted;
+    public void UpdateEvent(bool isAttackPressed)
+    {
+        IsAttackPressed = isAttackPressed;
+        if (isAttackPressed)
+            OnAttackPressed?.Invoke();
+
+        if (isAttackPressed && !AttackPressedLastFrame)
+            OnAttackJustPressed?.Invoke();
+
+        AttackPressedLastFrame = isAttackPressed;
+    }
 }
+
 
 public enum JumpPhase
 {

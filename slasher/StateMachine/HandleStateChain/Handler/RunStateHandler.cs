@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Windows.Forms;
+using Microsoft.Xna.Framework;
 
 namespace slasher.HandleStateChain;
 
@@ -13,14 +14,16 @@ public class RunStateHandler : IStateHandle
         _stateData = stateData;
     }
 
-    public bool CanHandle(GameTime gameTime)
+    public bool CanHandle()
     {
         bool canHandle = (_stateData.IsLeftPressed || _stateData.IsRightPressed) && _stateData.IsGrounded &&
                          StateMachine.Player.State is not (PlayerState.Jump or PlayerState.Dash or PlayerState.Defend or
-                             PlayerState.HurtBlock or PlayerState.Attack1 or PlayerState.Attack2 or PlayerState.Attack3 or
+                             PlayerState.HurtBlock or PlayerState.Attack2 or PlayerState.Attack3 or
                              PlayerState.AirAttack or PlayerState.SpecialAttack);
-        System.Diagnostics.Debug.WriteLine($"RunStateHandler.CanHandle: {canHandle}, IsGrounded={_stateData.IsGrounded}, State={StateMachine.Player.State}");
-        return canHandle;
+        bool cnhdl = canHandle;
+        if (StateMachine.Player.State is PlayerState.Attack1)
+            cnhdl = StateMachine.Player.CurrentAnimation.IsFinished;
+        return canHandle && cnhdl;
     }
 
     public void Handle()

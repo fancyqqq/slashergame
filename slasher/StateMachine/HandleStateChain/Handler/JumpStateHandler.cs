@@ -15,7 +15,7 @@ public class JumpStateHandler : IStateHandle
         _player = player;
     }
 
-    public bool CanHandle(GameTime gameTime)
+    public bool CanHandle()
     {
         return _stateData.IsJumpPressed && _stateData.IsGrounded && StateMachine.Player.State != PlayerState.Dash &&
                StateMachine.Player.State is not (PlayerState.Attack1 or PlayerState.Attack2 or PlayerState.Attack3 or

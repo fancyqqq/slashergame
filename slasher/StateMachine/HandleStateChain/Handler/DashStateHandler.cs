@@ -13,9 +13,9 @@ public class DashStateHandler : IStateHandle
         _stateData = stateData;
     }
 
-    public bool CanHandle(GameTime gameTime)
+    public bool CanHandle()
     {
-        float totalTime = (float)gameTime.TotalGameTime.TotalSeconds;
+        float totalTime = _stateData.TotalTime;
         bool doubleTapA = false;
         bool doubleTapD = false;
 

@@ -4,6 +4,7 @@ namespace slasher;
 
 public class InputReader
 {
+    private bool _attackPressedLastFrame;
     private readonly PlayerStateData _stateData;
 
     public InputReader(PlayerStateData stateData)
@@ -16,10 +17,12 @@ public class InputReader
         _stateData.IsLeftPressed = ks.IsKeyDown(Keys.A);
         _stateData.IsRightPressed = ks.IsKeyDown(Keys.D);
         _stateData.IsJumpPressed = ks.IsKeyDown(Keys.Space);
-        _stateData.IsAttackPressed = ms.LeftButton == ButtonState.Pressed;
+            bool isAttackPressed = ms.LeftButton == ButtonState.Pressed;
+            _stateData.UpdateEvent(isAttackPressed);
+
+            _attackPressedLastFrame = isAttackPressed;
         _stateData.IsDefendPressed = ms.RightButton == ButtonState.Pressed;
         _stateData.IsSpecialPressed = ms.LeftButton == ButtonState.Pressed;
         
-        System.Diagnostics.Debug.WriteLine($"Input: Left={_stateData.IsLeftPressed}, Right={_stateData.IsRightPressed}, Jump={_stateData.IsJumpPressed}");
     }
 }

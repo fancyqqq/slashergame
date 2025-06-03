@@ -5,6 +5,6 @@ namespace slasher.HandleStateChain;
 public interface IStateHandle
 {
     StateMachineInitialization StateMachine { get; }
-    bool CanHandle(GameTime gameTime);
+    bool CanHandle();
     void Handle();
 }

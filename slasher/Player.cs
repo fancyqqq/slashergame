@@ -10,17 +10,8 @@ namespace slasher;
 
 public enum PlayerState
 {
-    Idle,
-    Run,
-    Jump,
-    Dash,
-    Defend,
-    HurtBlock,
-    Attack1,
-    Attack2,
-    Attack3,
-    AirAttack,
-    SpecialAttack
+    Idle, Run, Jump, Dash, Defend, HurtBlock,
+    Attack1, Attack2, Attack3, AirAttack, SpecialAttack
 }
 
 public class Player
@@ -54,18 +45,8 @@ public class Player
         }
     }
 
-    public Vector2 Position
-    {
-        get => _position;
-        set => _position = value;
-    }
-
-    public Vector2 Velocity
-    {
-        get => _velocity;
-        set => _velocity = value;
-    }
-
+    public Vector2 Position { get => _position; set => _position = value; }
+    public Vector2 Velocity { get => _velocity; set => _velocity = value; }
     public PlayerState State => _state;
     public PlayerStateData StateData => _stateData;
     public bool IsJumping => _state == PlayerState.Jump;
@@ -74,8 +55,7 @@ public class Player
     public Animation CurrentAnimation => _animation.CurrentAnimation;
     public GameTime GameTime => _gameTime;
 
-    public Player(ContentManager content, GraphicsDevice graphicsDevice, TiledMapTileLayer collisionLayer, int tileSize,
-        int groundY)
+    public Player(ContentManager content, GraphicsDevice graphicsDevice, TiledMapTileLayer collisionLayer, int tileSize, int groundY)
     {
         _stateData = new PlayerStateData
         {
@@ -83,6 +63,7 @@ public class Player
             CollisionLayer = collisionLayer,
             TileSize = tileSize
         };
+
         var animations = AnimationLoader.LoadAnimations(content, graphicsDevice);
         _animation = new AnimationComponent(animations);
     }
@@ -109,7 +90,6 @@ public class Player
     private void ApplyPhysics(GameTime gameTime)
     {
         float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
-
         if (!_stateData.IsGrounded)
         {
             float gravity = _stateData.Velocity.Y > 0
@@ -121,127 +101,95 @@ public class Player
         Vector2 proposedPosition = _position + _stateData.Velocity * dt;
         Rectangle current = BoundingBox;
 
-        List<Rectangle> predictiveBoxes = new List<Rectangle>
-        {
-            current,
-            new Rectangle(current.Left - _stateData.TileSize, current.Y, _stateData.TileSize, current.Height),
-            new Rectangle(current.Right, current.Y, _stateData.TileSize, current.Height),
-            new Rectangle(current.X, current.Top - _stateData.TileSize, current.Width, _stateData.TileSize),
-            new Rectangle(current.X, current.Bottom, current.Width, _stateData.TileSize),
-            new Rectangle(current.Left - _stateData.TileSize, current.Top - _stateData.TileSize, _stateData.TileSize,
-                _stateData.TileSize),
-            new Rectangle(current.Right, current.Top - _stateData.TileSize, _stateData.TileSize, _stateData.TileSize)
-        };
-
         Rectangle groundSensor = new Rectangle(current.X, current.Bottom, current.Width, 2);
         bool isGroundBeneath = IsColliding(groundSensor);
 
-        bool xCollision = false;
-        foreach (var box in predictiveBoxes)
+        Rectangle futureBoxX = new Rectangle(
+            (int)(current.X + _stateData.Velocity.X * dt),
+            current.Y,
+            current.Width,
+            current.Height
+        );
+
+        if (IsColliding(futureBoxX))
         {
-            Rectangle futureBoxX = new Rectangle(
-                (int)(box.X + _stateData.Velocity.X * dt),
-                box.Y,
-                box.Width,
-                box.Height
-            );
-            if (IsColliding(futureBoxX))
+            if (_stateData.Velocity.X > 0)
             {
-                xCollision = true;
-                if (_stateData.Velocity.X > 0)
-                {
-                    float tileX = (float)Math.Floor(futureBoxX.Right / (float)_stateData.TileSize) *
-                                  _stateData.TileSize;
-                    float offsetX = current.Right - _position.X;
-                    _position.X = tileX - offsetX - 1;
-                    _stateData.Velocity.X = 0;
-                }
-                else if (_stateData.Velocity.X < 0)
-                {
-                    float tileX = (float)Math.Ceiling(futureBoxX.Left / (float)_stateData.TileSize) *
-                                  _stateData.TileSize;
-                    float offsetX = current.Left - _position.X;
-                    _position.X = tileX - offsetX + 1;
-                    _stateData.Velocity.X = 0;
-                }
-
-                break;
+                int tileX = (int)Math.Floor((float)futureBoxX.Right / _stateData.TileSize) * _stateData.TileSize;
+                float offset = current.Right - _position.X;
+                _position.X = tileX - offset - 1;
             }
+            else if (_stateData.Velocity.X < 0)
+            {
+                int tileX = (int)Math.Ceiling((float)futureBoxX.Left / _stateData.TileSize) * _stateData.TileSize;
+                float offset = current.Left - _position.X;
+                _position.X = tileX - offset + 1;
+            }
+            _stateData.Velocity.X = 0;
         }
-
-        if (!xCollision)
+        else
         {
             _position.X = proposedPosition.X;
         }
 
-        bool yCollision = false;
-        foreach (var box in predictiveBoxes)
-        {
-            Rectangle futureBoxY = new Rectangle(
-                box.X,
-                (int)(box.Y + _stateData.Velocity.Y * dt),
-                box.Width,
-                box.Height
-            );
-            if (IsColliding(futureBoxY))
-            {
-                yCollision = true;
-                if (_stateData.Velocity.Y > 0)
-                {
-                    float tileY = (float)Math.Floor(futureBoxY.Bottom / (float)_stateData.TileSize) *
-                                  _stateData.TileSize;
-                    float offsetY = current.Top - _position.Y;
-                    _position.Y = tileY - current.Height - offsetY;
-                    _stateData.Velocity.Y = 0;
-                    _stateData.IsGrounded = true;
-                }
-                else if (_stateData.Velocity.Y < 0)
-                {
-                    float tileY = (float)Math.Ceiling(futureBoxY.Top / (float)_stateData.TileSize) *
-                                  _stateData.TileSize;
-                    float offsetY = current.Top - _position.Y;
-                    _position.Y = tileY - offsetY;
-                    _stateData.Velocity.Y = 0;
-                }
+        Rectangle futureBoxY = new Rectangle(
+            current.X,
+            (int)(current.Y + _stateData.Velocity.Y * dt),
+            current.Width,
+            current.Height
+        );
 
-                break;
+        if (IsColliding(futureBoxY))
+        {
+            if (_stateData.Velocity.Y > 0)
+            {
+                int tileY = (int)Math.Floor((float)futureBoxY.Bottom / _stateData.TileSize) * _stateData.TileSize;
+                float offset = current.Top - _position.Y;
+                _position.Y = tileY - current.Height - offset;
+                _stateData.Velocity.Y = 0;
+                _stateData.IsGrounded = true;
+            }
+            else if (_stateData.Velocity.Y < 0)
+            {
+                int tileY = (int)Math.Ceiling((float)futureBoxY.Top / _stateData.TileSize) * _stateData.TileSize;
+                float offset = current.Top - _position.Y;
+                _position.Y = tileY - offset;
+                _stateData.Velocity.Y = 0;
             }
         }
-
-        if (!yCollision)
+        else
         {
             _position.Y = proposedPosition.Y;
             _stateData.IsGrounded = isGroundBeneath;
         }
-
-        System.Diagnostics.Debug.WriteLine(
-            $"IsGrounded: {_stateData.IsGrounded}, Position.Y: {_position.Y}, Velocity.Y: {_stateData.Velocity.Y}");
     }
 
-    private bool IsColliding(Rectangle rect)
+    private bool IsColliding(Rectangle entity)
     {
-        int left = rect.Left / _stateData.TileSize;
-        int right = (rect.Right - 1) / _stateData.TileSize;
-        int top = rect.Top / _stateData.TileSize;
-        int bottom = (rect.Bottom - 1) / _stateData.TileSize;
+        int tileWidth = _stateData.TileSize;
+        int tileHeight = _stateData.TileSize;
 
-        bool collisionDetected = false;
-        for (int y = top; y <= bottom; y++)
+        int originX = entity.X / tileWidth;
+        int originY = entity.Y / tileHeight;
+        int endX = (entity.Right - 1) / tileWidth;
+        int endY = (entity.Bottom - 1) / tileHeight;
+
+        for (int x = originX; x <= endX; x++)
         {
-            for (int x = left; x <= right; x++)
+            for (int y = originY; y <= endY; y++)
             {
                 if (x < 0 || y < 0 || x >= _stateData.CollisionLayer.Width || y >= _stateData.CollisionLayer.Height)
                     continue;
 
                 var tile = _stateData.CollisionLayer.GetTile((ushort)x, (ushort)y);
                 if (tile.GlobalIdentifier == 66)
-                {
                     return true;
-                }
             }
         }
+
         return false;
     }
+
     public void Draw(SpriteBatch spriteBatch)
     {
         if (_stateData.WindPlaying)
@@ -270,15 +218,8 @@ public class Player
             0f);
     }
 
-    public void SetState(PlayerState state)
-    {
-        _state = state;
-    }
-
-    public void SetAnimation(string key, bool loop = true)
-    {
-        _animation.SetAnimation(key, loop);
-    }
+    public void SetState(PlayerState state) => _state = state;
+    public void SetAnimation(string key, bool loop = true) => _animation.SetAnimation(key, loop);
 
     public void SetStateAndAnimation(PlayerState newState, string animationName, bool loop = true)
     {
@@ -286,10 +227,7 @@ public class Player
         _state = newState;
     }
 
-    public Animation GetAnimation(string key)
-    {
-        return _animation.GetAnimation(key);
-    }
+    public Animation GetAnimation(string key) => _animation.GetAnimation(key);
 
     public void TriggerBlockHurt()
     {
