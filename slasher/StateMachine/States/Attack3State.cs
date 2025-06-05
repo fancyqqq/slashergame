@@ -17,7 +17,7 @@ public class Attack3State : PlayerBaseState
         Data.Velocity = new Vector2(0, Data.Velocity.Y);
     }
 
-    public override void OnUpdateBehavior(KeyboardState ks)
+    public override void OnUpdateBehavior()
     {
         if (Player.CurrentAnimation.IsFinished)
         {

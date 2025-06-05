@@ -17,13 +17,11 @@ public class GroundMoveStrategy : IMoveStrategy
     {
         if (_stateData.IsLeftPressed)
         {
-            System.Diagnostics.Debug.WriteLine("Left");
             _stateData.Velocity = new Vector2(-_stateData.MoveSpeed, _stateData.Velocity.Y);
             _stateData.IsFacingRight = false;
         }
         else if (_stateData.IsRightPressed)
         {
-            System.Diagnostics.Debug.WriteLine("Right");
             _stateData.Velocity = new Vector2(_stateData.MoveSpeed, _stateData.Velocity.Y);
             _stateData.IsFacingRight = true;
         }

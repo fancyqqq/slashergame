@@ -58,8 +58,17 @@ public class PlayerStateData
 
         AttackPressedLastFrame = isAttackPressed;
     }
-}
+    
+    public bool IsTouchingWall(Player player)
+    {
+        var box = player.BoundingBox;
+        Rectangle sideSensor = IsFacingRight
+            ? new Rectangle(box.Right, box.Top, 2, box.Height)
+            : new Rectangle(box.Left - 2, box.Top, 2, box.Height);
 
+        return player.IsColliding(sideSensor);
+    }
+}
 
 public enum JumpPhase
 {

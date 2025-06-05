@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("slasher")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+522fe10a2dd39706c2af9fd1114f01d664d0770c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7cd0e0e2f8bf686021d90b3fc4151e25a6d350e1")]
 [assembly: System.Reflection.AssemblyProductAttribute("slasher")]
 [assembly: System.Reflection.AssemblyTitleAttribute("slasher")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

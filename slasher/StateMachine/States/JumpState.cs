@@ -40,7 +40,7 @@ public class JumpState : PlayerBaseState
         Player.Velocity = new Vector2(0, Player.Velocity.Y);
     }
 
-    public override void OnUpdateBehavior(KeyboardState ks)
+    public override void OnUpdateBehavior()
     {
         System.Diagnostics.Debug.WriteLine("Jump State");
         switch (Data.CurrentJumpPhase)
@@ -82,5 +82,6 @@ public class JumpState : PlayerBaseState
         }
         MachineInitialization.StateHandleChain.HandleState<DashStateHandler>();
         MachineInitialization.StateHandleChain.HandleState<AirAttackStateHandler>();
+        MachineInitialization.StateHandleChain.HandleState<WallJumpStateHandler>();
     }
 }

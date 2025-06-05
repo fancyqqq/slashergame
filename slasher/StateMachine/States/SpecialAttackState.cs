@@ -23,7 +23,7 @@ public class SpecialAttackState : PlayerBaseState
         Data.SpecialStarted = false;
     }
 
-    public override void OnUpdateBehavior(KeyboardState ks)
+    public override void OnUpdateBehavior()
     {
         if (Player.CurrentAnimation.IsFinished)
         {

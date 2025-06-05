@@ -41,6 +41,11 @@ namespace slasher
             animations["defend_hurt"] = new Animation(content.Load<Texture2D>("DEFEND-hurt"), 5, 0.1f, 96, graphicsDevice,
                 new Rectangle(115, 146, 55, 96));
             animations["defend_hurt"].IsLooping = false;
+            animations["wall_contact"] = new Animation(content.Load<Texture2D>("WALL CONTACT"), 3, 0.1f, 96, graphicsDevice,
+                new Rectangle(115, 146, 55, 96));
+            animations["wall_slide"] = new Animation(content.Load<Texture2D>("WALL SLIDE"), 3, 0.1f, 96, graphicsDevice,
+                new Rectangle(115, 146, 55, 96));
+            animations["wall_slide"].IsLooping = true;
 
             return animations;
         }

@@ -18,7 +18,7 @@ public class AirAttackState : PlayerBaseState
         Player.SetStateAndAnimation(PlayerState.AirAttack, "air_attack", false);
     }
 
-    public override void OnUpdateBehavior(KeyboardState ks)
+    public override void OnUpdateBehavior()
     {
         _moveStrategy.Move();
         

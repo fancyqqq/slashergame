@@ -22,7 +22,7 @@ public class DefendState : PlayerBaseState
         
     }
 
-    public override void OnUpdateBehavior(KeyboardState ks)
+    public override void OnUpdateBehavior()
     {
         if (!Data.IsDefendPressed)
         {

@@ -36,7 +36,7 @@ public class DashState : PlayerBaseState
         Player.Velocity = new Vector2(0, Player.Velocity.Y);
     }
 
-    public override void OnUpdateBehavior(KeyboardState ks)
+    public override void OnUpdateBehavior()
     {
         Data.DashTime -= 1f / 60f;
         Player.Velocity = new Vector2(Data.Velocity.X * Data.DashLerp, Data.Velocity.Y);

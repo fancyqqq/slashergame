@@ -7,5 +7,5 @@ public interface IState
 {
     void OnEnter();
     void OnExit();
-    void OnUpdateBehavior(KeyboardState ks);
+    void OnUpdateBehavior();
 }

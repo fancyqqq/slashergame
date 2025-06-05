@@ -75,7 +75,7 @@ public class Game1 : Game
         inputReader.Read(ks, ms);
 
         //_stateMachineInitialization.StateHandleChain.HandleState(gameTime);
-        _stateMachineInitialization.PlayerStateMachine.currentStates?.OnUpdateBehavior(ks);
+        _stateMachineInitialization.PlayerStateMachine.currentStates?.OnUpdateBehavior();
     
         _player.Update(gameTime, ks, ms);
         _mapRenderer.Update(gameTime);

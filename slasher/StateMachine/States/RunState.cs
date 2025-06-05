@@ -25,7 +25,7 @@ public class RunState : PlayerBaseState
         Player.Velocity = Vector2.Zero;
     }
     
-    public override void OnUpdateBehavior(KeyboardState ks)
+    public override void OnUpdateBehavior()
     {
         _moveStrategy.Move();
         

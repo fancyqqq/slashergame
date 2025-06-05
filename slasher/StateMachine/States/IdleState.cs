@@ -22,7 +22,7 @@ public class IdleState : PlayerBaseState
         
     }
     
-    public override void OnUpdateBehavior(KeyboardState ks)
+    public override void OnUpdateBehavior()
     {
         //System.Diagnostics.Debug.WriteLine(Data.IsAttackPressed);
         MachineInitialization.StateHandleChain.HandleState<RunStateHandler>();

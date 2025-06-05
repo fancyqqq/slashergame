@@ -11,7 +11,7 @@ namespace slasher;
 public enum PlayerState
 {
     Idle, Run, Jump, Dash, Defend, HurtBlock,
-    Attack1, Attack2, Attack3, AirAttack, SpecialAttack
+    Attack1, Attack2, Attack3, AirAttack, SpecialAttack, WallJump
 }
 
 public class Player
@@ -165,7 +165,7 @@ public class Player
         }
     }
 
-    private bool IsColliding(Rectangle entity)
+    public bool IsColliding(Rectangle entity)
     {
         int tileWidth = _stateData.TileSize;
         int tileHeight = _stateData.TileSize;

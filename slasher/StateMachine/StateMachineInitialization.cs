@@ -29,7 +29,8 @@ public class StateMachineInitialization
             new Attack2State(Player.StateData, Player, this),
             new Attack3State(Player.StateData, Player, this),
             new AirAttackState(Player.StateData, Player, this),
-            new SpecialAttackState(Player.StateData, Player, this)
+            new SpecialAttackState(Player.StateData, Player, this),
+            new WallJumpState(Player.StateData, Player, this)
         );
 
         StateHandleChain = new StateHandleChain(new List<IStateHandle>
@@ -44,7 +45,8 @@ public class StateMachineInitialization
             new AirAttackStateHandler(this, Player.StateData),
             new SpecialAttackStateHandler(this, Player.StateData),
             new RunStateHandler(this, Player.StateData),
-            new IdleStateHandler(this, Player.StateData)
+            new IdleStateHandler(this, Player.StateData),
+            new WallJumpStateHandler(this, Player.StateData)
         });
 
         PlayerStateMachine.SwitchStates<IdleState>();

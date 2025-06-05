@@ -31,7 +31,7 @@ public class Attack2State : PlayerBaseState
         Data.AttackQueued = true;
     }
     
-    public override void OnUpdateBehavior(KeyboardState ks)
+    public override void OnUpdateBehavior()
     {
         if (Player.CurrentAnimation.IsFinished)
         {
