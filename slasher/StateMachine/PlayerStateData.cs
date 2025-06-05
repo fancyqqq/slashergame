@@ -6,6 +6,7 @@ namespace slasher;
 
 public class PlayerStateData
 {
+    public float MoveSpeed = 400f;
     public bool IsJumpPressed;
     public bool IsLeftPressed;
     public bool IsRightPressed;
@@ -16,7 +17,6 @@ public class PlayerStateData
     public Vector2 Velocity;
     public bool IsFacingRight = true;
     public float GroundY = 300f;
-    public float AirSpeed = 300f;
     public JumpPhase CurrentJumpPhase;
     public TiledMapTileLayer CollisionLayer;
     public int TileSize;

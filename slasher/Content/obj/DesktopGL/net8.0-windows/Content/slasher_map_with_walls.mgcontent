@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>C:/Users/eldm5/source/repos/slasher/slasher/Content/slasher_map_with_walls.tmx</SourceFile>
+  <SourceTime>2025-06-05T20:27:38.4084819+05:00</SourceTime>
+  <DestFile>C:/Users/eldm5/source/repos/slasher/slasher/Content/bin/DesktopGL/Content/slasher_map_with_walls.xnb</DestFile>
+  <DestTime>2025-06-05T20:27:39.4150288+05:00</DestTime>
+  <Importer>TiledMapImporter</Importer>
+  <ImporterTime>2025-04-23T19:42:52+05:00</ImporterTime>
+  <Processor>TiledMapProcessor</Processor>
+  <ProcessorTime>2025-04-23T19:42:52+05:00</ProcessorTime>
+  <Dependencies>
+    <string>C:\Users\eldm5\source\repos\slasher\slasher\Content\Tileset.png</string>
+    <string>C:\Users\eldm5\source\repos\slasher\slasher\Content\hitboxes.png</string>
+    <string>C:\Users\eldm5\source\repos\slasher\slasher\Content\bkgr3.png</string>
+    <string>C:\Users\eldm5\source\repos\slasher\slasher\Content\bkgr2.png</string>
+    <string>C:\Users\eldm5\source\repos\slasher\slasher\Content\bkgr1.png</string>
+  </Dependencies>
+  <BuildAsset>
+    <string>C:/Users/eldm5/source/repos/slasher/slasher/Content/bin/DesktopGL/Content/Tileset_1.xnb</string>
+    <string>C:/Users/eldm5/source/repos/slasher/slasher/Content/bin/DesktopGL/Content/hitboxes_0.xnb</string>
+    <string>C:/Users/eldm5/source/repos/slasher/slasher/Content/bin/DesktopGL/Content/bkgr3_0.xnb</string>
+    <string>C:/Users/eldm5/source/repos/slasher/slasher/Content/bin/DesktopGL/Content/bkgr2_0.xnb</string>
+    <string>C:/Users/eldm5/source/repos/slasher/slasher/Content/bin/DesktopGL/Content/bkgr1_0.xnb</string>
+  </BuildAsset>
+  <BuildOutput />
+</PipelineBuildEvent>

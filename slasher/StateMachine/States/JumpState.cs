@@ -5,11 +5,13 @@ using slasher.HandleStateChain;
 namespace slasher;
 public class JumpState : PlayerBaseState
 {
+    private IMoveStrategy _moveStrategy;
     private readonly float _jumpForce = -550f;
 
     public JumpState(PlayerStateData data, Player player, StateMachineInitialization machineInitialization)
         : base(data, player, machineInitialization)
     {
+        _moveStrategy = new AirMoveStrategy(Data, Player);
     }
 
     public override void OnEnter()
@@ -69,16 +71,7 @@ public class JumpState : PlayerBaseState
                 break;
         }
         
-        if (Data.IsLeftPressed && !Data.IsRightPressed)
-        {
-            Player.Velocity = new Vector2(-Data.AirSpeed, Player.Velocity.Y);
-            Data.IsFacingRight = false;
-        }
-        else if (Data.IsRightPressed && !Data.IsLeftPressed)
-        {
-            Player.Velocity = new Vector2(Data.AirSpeed, Player.Velocity.Y);
-            Data.IsFacingRight = true;
-        }
+        _moveStrategy.Move(); 
         
         if (Data.IsGrounded && Data.CurrentJumpPhase == JumpPhase.Fall)
         {

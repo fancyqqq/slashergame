@@ -40,7 +40,7 @@ public class Game1 : Game
         _debugPixel = new Texture2D(GraphicsDevice, 1, 1);
         _debugPixel.SetData(new[] { Color.White });
         
-        _map = Content.Load<TiledMap>("slasher_map");
+        _map = Content.Load<TiledMap>("slasher_map_with_walls");
         _mapRenderer = new TiledMapRenderer(GraphicsDevice, _map);
         var collisionLayer = _map.GetLayer<TiledMapTileLayer>("Collisions");
         
