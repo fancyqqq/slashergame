@@ -15,10 +15,8 @@ public class AirAttackStateHandler : IStateHandle
 
     public bool CanHandle()
     {
-        bool isPressed = _stateData.IsAttackPressed && !_stateData.AttackPressedLastFrame;
-        _stateData.AttackPressedLastFrame = _stateData.IsAttackPressed;
-        return isPressed && !_stateData.IsGrounded &&
-               StateMachine.Player.State is PlayerState.Jump;
+        bool isPressed = _stateData.IsAttackPressed;
+        return isPressed && !_stateData.IsGrounded;
     }
 
     public void Handle()

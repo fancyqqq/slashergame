@@ -19,10 +19,8 @@ public class InputReader
         _stateData.IsJumpPressed = ks.IsKeyDown(Keys.Space);
             bool isAttackPressed = ms.LeftButton == ButtonState.Pressed;
             _stateData.UpdateEvent(isAttackPressed);
-
-            _attackPressedLastFrame = isAttackPressed;
         _stateData.IsDefendPressed = ms.RightButton == ButtonState.Pressed;
-        _stateData.IsSpecialPressed = ms.LeftButton == ButtonState.Pressed;
-        
+        _stateData.IsSpecialPressed = ks.IsKeyDown(Keys.R);
+
     }
 }

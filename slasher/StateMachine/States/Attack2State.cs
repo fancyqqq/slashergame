@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using slasher.HandleStateChain;
 
 namespace slasher;
 
@@ -12,16 +13,25 @@ public class Attack2State : PlayerBaseState
 
     public override void OnEnter()
     {
+        Data.IsAttackPressed = false;
         Player.SetStateAndAnimation(PlayerState.Attack2, "attack2", false);
-        Data.Velocity = new Vector2(0, Data.Velocity.Y);
+        Player.Velocity = new Vector2(0, Data.Velocity.Y);
+        Data.OnAttackJustPressed += QueueNextAttack;
     }
 
     public override void OnExit()
     {
+        Data.OnAttackJustPressed -= QueueNextAttack;
         Data.AttackQueued = false;
     }
-
-    public override void OnUpdateBehaviour(KeyboardState ks)
+    
+    private void QueueNextAttack()
+    {
+        System.Diagnostics.Debug.WriteLine("Attack Queued");
+        Data.AttackQueued = true;
+    }
+    
+    public override void OnUpdateBehavior(KeyboardState ks)
     {
         if (Player.CurrentAnimation.IsFinished)
         {

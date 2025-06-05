@@ -15,9 +15,6 @@ public class Attack1StateHandler : IStateHandle
 
     public bool CanHandle()
     {
-        System.Diagnostics.Debug.WriteLine("can  handle");
-        System.Diagnostics.Debug.WriteLine(_stateData.IsAttackPressed);
-        System.Diagnostics.Debug.WriteLine(_stateData.AttackPressedLastFrame);
         bool isPressed = _stateData.IsAttackPressed;
         return isPressed && _stateData.IsGrounded &&
                StateMachine.Player.State is PlayerState.Idle or PlayerState.Run;

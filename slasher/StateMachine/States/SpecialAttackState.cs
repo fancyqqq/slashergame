@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using slasher.HandleStateChain;
 
 namespace slasher;
 
@@ -22,12 +23,12 @@ public class SpecialAttackState : PlayerBaseState
         Data.SpecialStarted = false;
     }
 
-    public override void OnUpdateBehaviour(KeyboardState ks)
+    public override void OnUpdateBehavior(KeyboardState ks)
     {
-        base.OnUpdateBehaviour(ks);
         if (Player.CurrentAnimation.IsFinished)
         {
-            MachineInitialization.PlayerStateMachine.SwitchStates<IdleState>();
+            MachineInitialization.StateHandleChain.HandleState<RunStateHandler>();
+            MachineInitialization.StateHandleChain.HandleState<IdleStateHandler>();
         }
     }
 }

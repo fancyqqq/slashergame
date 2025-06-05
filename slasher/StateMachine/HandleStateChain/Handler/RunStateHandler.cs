@@ -17,9 +17,9 @@ public class RunStateHandler : IStateHandle
     public bool CanHandle()
     {
         bool canHandle = (_stateData.IsLeftPressed || _stateData.IsRightPressed) && _stateData.IsGrounded &&
-                         StateMachine.Player.State is not (PlayerState.Jump or PlayerState.Dash or PlayerState.Defend or
+                         StateMachine.Player.State is not (PlayerState.Jump or
                              PlayerState.HurtBlock or PlayerState.Attack2 or PlayerState.Attack3 or
-                             PlayerState.AirAttack or PlayerState.SpecialAttack);
+                             PlayerState.AirAttack);
         bool cnhdl = canHandle;
         if (StateMachine.Player.State is PlayerState.Attack1)
             cnhdl = StateMachine.Player.CurrentAnimation.IsFinished;

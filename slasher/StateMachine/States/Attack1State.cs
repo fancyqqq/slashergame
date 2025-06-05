@@ -31,7 +31,7 @@ public class Attack1State : PlayerBaseState
         Data.AttackQueued = true;
     }
     
-    public override void OnUpdateBehaviour(KeyboardState ks)
+    public override void OnUpdateBehavior(KeyboardState ks)
     {
         Player.Velocity = new Vector2(0, Player.Velocity.Y);
 

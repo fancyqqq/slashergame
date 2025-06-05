@@ -1,4 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
+using slasher.HandleStateChain;
 
 namespace slasher;
 
@@ -12,6 +14,20 @@ public class DefendState : PlayerBaseState
     public override void OnEnter()
     {
         Player.SetStateAndAnimation(PlayerState.Defend, "defend");
-        Data.Velocity = new Vector2(0, Data.Velocity.Y);
+        Player.Velocity = new Vector2(0, Data.Velocity.Y);
+    }
+
+    public override void OnExit()
+    {
+        
+    }
+
+    public override void OnUpdateBehavior(KeyboardState ks)
+    {
+        if (!Data.IsDefendPressed)
+        {
+            MachineInitialization.StateHandleChain.HandleState<IdleStateHandler>();
+            MachineInitialization.StateHandleChain.HandleState<RunStateHandler>();
+        }
     }
 }

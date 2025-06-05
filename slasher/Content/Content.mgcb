@@ -313,6 +313,11 @@
 /processorParam:TextureFormat=Color
 /build:RUN.png
 
+#begin slasher_map_with_walls.tmx
+/importer:TiledMapImporter
+/processor:TiledMapProcessor
+/build:slasher_map_with_walls.tmx
+
 #begin slasher_map.tmx
 /importer:TiledMapImporter
 /processor:TiledMapProcessor

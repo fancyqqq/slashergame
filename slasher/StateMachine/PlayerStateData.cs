@@ -16,14 +16,15 @@ public class PlayerStateData
     public Vector2 Velocity;
     public bool IsFacingRight = true;
     public float GroundY = 300f;
+    public float AirSpeed = 300f;
     public JumpPhase CurrentJumpPhase;
     public TiledMapTileLayer CollisionLayer;
     public int TileSize;
     public float Gravity = 1200f;
     public float FallGravityMultiplier = 2f;
     // dash
-    static public GameTime gameTime = new GameTime();
-    public float TotalTime = (float)gameTime.TotalGameTime.TotalSeconds;
+    public int DashDirection = 1; // +1 = вправо, -1 = влево
+    public float TotalTime;
     public bool CanDash = true;
     public float DashTime;
     public float DashDuration = 0.25f;
@@ -39,7 +40,7 @@ public class PlayerStateData
     public float LastDPressTime = -1f;
     public bool APressedLastFrame;
     public bool DPressedLastFrame;
-    public const float DoubleTapInterval = 0.5f;
+    public const float DoubleTapInterval = 0.2f;
     // attack
     public event Action OnAttackPressed;
     public event Action OnAttackJustPressed;

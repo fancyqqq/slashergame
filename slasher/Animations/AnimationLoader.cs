@@ -34,7 +34,7 @@ namespace slasher
                 new Rectangle(115, 146, 55, 96));
             animations["dash"] = new Animation(content.Load<Texture2D>("DASH NO WIND IMPACT"), 8, 0.05f, 96, graphicsDevice,
                 new Rectangle(115, 146, 55, 96));
-            animations["wind"] = new Animation(content.Load<Texture2D>("WIND"), 8, 0.07f, 96, graphicsDevice, new Rectangle());
+            animations["wind"] = new Animation(content.Load<Texture2D>("WIND"), 6, 0.066f, 96, graphicsDevice, new Rectangle());
             animations["defend"] = new Animation(content.Load<Texture2D>("DEFEND"), 1, 0.1f, 96, graphicsDevice,
                 new Rectangle(130, 146, 55, 96));
             animations["defend"].IsLooping = true;

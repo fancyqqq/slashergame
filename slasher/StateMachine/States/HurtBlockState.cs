@@ -16,7 +16,7 @@ public class HurtBlockState : PlayerBaseState
         Data.Velocity = new Vector2(0, Data.Velocity.Y);
     }
 
-    public override void OnUpdateBehaviour(KeyboardState ks)
+    public override void OnUpdateBehavior(KeyboardState ks)
     {
         if (Player.CurrentAnimation.IsFinished)
         {

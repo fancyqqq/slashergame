@@ -18,20 +18,13 @@ public abstract class PlayerBaseState : IState
 
     public virtual void OnEnter()
     {
-        MachineInitialization.PlayerStateData.OnAttackJustPressed += OnAttackPressed;
-    }
-
-    public void OnAttackPressed()
-    {
-        MachineInitialization.PlayerStateData.IsAttackPressed = true;
     }
 
     public virtual void OnExit()
     {
-        MachineInitialization.PlayerStateData.OnAttackJustPressed -= OnAttackPressed;
     }
 
-    public virtual void OnUpdateBehaviour(KeyboardState ks)
+    public virtual void OnUpdateBehavior(KeyboardState ks)
     {
         
     }

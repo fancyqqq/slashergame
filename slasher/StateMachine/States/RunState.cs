@@ -24,9 +24,8 @@ public class RunState : PlayerBaseState
         Player.Velocity = Vector2.Zero;
     }
     
-    public override void OnUpdateBehaviour(KeyboardState ks)
+    public override void OnUpdateBehavior(KeyboardState ks)
     {
-        base.OnUpdateBehaviour(ks);
         if (Data.IsLeftPressed)
         {
             Data.Velocity = new Vector2(-_moveSpeed, Data.Velocity.Y);
@@ -41,5 +40,9 @@ public class RunState : PlayerBaseState
         
         MachineInitialization.StateHandleChain.HandleState<IdleStateHandler>();
         MachineInitialization.StateHandleChain.HandleState<Attack1StateHandler>();
+        MachineInitialization.StateHandleChain.HandleState<JumpStateHandler>();
+        MachineInitialization.StateHandleChain.HandleState<DashStateHandler>();
+        MachineInitialization.StateHandleChain.HandleState<DefendStateHandler>();
+        MachineInitialization.StateHandleChain.HandleState<SpecialAttackStateHandler>();
     }
 }

@@ -72,6 +72,7 @@ public class Player
     {
         _gameTime = gameTime;
         _stateData.Velocity = _velocity;
+        _stateData.TotalTime = (float)gameTime.TotalGameTime.TotalSeconds;
 
         if (!_stateData.CanDash)
         {

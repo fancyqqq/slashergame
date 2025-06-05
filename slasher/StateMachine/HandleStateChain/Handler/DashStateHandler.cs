@@ -46,7 +46,10 @@ public class DashStateHandler : IStateHandle
             }
         }
         _stateData.DPressedLastFrame = _stateData.IsRightPressed;
-
+        
+        if (doubleTapA) _stateData.DashDirection = -1;
+        if (doubleTapD) _stateData.DashDirection = 1;
+        
         return _stateData.CanDash && (doubleTapA || doubleTapD) &&
                StateMachine.Player.State is not (PlayerState.Attack1 or PlayerState.Attack2 or PlayerState.Attack3 or
                    PlayerState.AirAttack or PlayerState.SpecialAttack or PlayerState.Defend or PlayerState.HurtBlock);

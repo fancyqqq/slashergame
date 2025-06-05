@@ -22,11 +22,14 @@ public class IdleState : PlayerBaseState
         
     }
     
-    public override void OnUpdateBehaviour(KeyboardState ks)
+    public override void OnUpdateBehavior(KeyboardState ks)
     {
         //System.Diagnostics.Debug.WriteLine(Data.IsAttackPressed);
         MachineInitialization.StateHandleChain.HandleState<RunStateHandler>();
         MachineInitialization.StateHandleChain.HandleState<JumpStateHandler>();
         MachineInitialization.StateHandleChain.HandleState<Attack1StateHandler>();
+        MachineInitialization.StateHandleChain.HandleState<DashStateHandler>();
+        MachineInitialization.StateHandleChain.HandleState<DefendStateHandler>();
+        MachineInitialization.StateHandleChain.HandleState<SpecialAttackStateHandler>();
     }
 }
