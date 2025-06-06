@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 
 namespace slasher
@@ -23,8 +22,7 @@ namespace slasher
 
         public void SetAnimation(string key, bool loop = true)
         {
-            if (!_animations.ContainsKey(key))
-                return;
+            if (!_animations.ContainsKey(key)) return;
 
             var anim = _animations[key];
             anim.IsLooping = loop;
@@ -38,23 +36,7 @@ namespace slasher
 
         public Animation GetAnimation(string key)
         {
-            return _animations.ContainsKey(key) ? _animations[key] : null;
-        }
-
-        public void UpdateAnimationState(PlayerState state, Vector2 velocity, bool isJumping, bool isDashing)
-        {
-            if (isJumping && state == PlayerState.AirAttack && !_currentAnimation.IsFinished)
-                return;
-
-            if (isJumping || isDashing ||
-                state is PlayerState.Attack1 or PlayerState.Attack2 or PlayerState.Attack3 or
-                    PlayerState.Defend or PlayerState.HurtBlock or PlayerState.SpecialAttack or PlayerState.AirAttack)
-                return;
-
-            if (velocity.X != 0)
-                SetAnimation("run");
-            else
-                SetAnimation("idle");
+            return _animations.TryGetValue(key, out var anim) ? anim : null;
         }
     }
 }

@@ -364,7 +364,7 @@
 /processorParam:TextureFormat=Color
 /build:Trees.png
 
-#begin WALL CONTACT.png
+#begin WALL CONTACT INV.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -374,9 +374,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:WALL CONTACT.png
+/build:WALL CONTACT INV.png
 
-#begin WALL JUMP.png
+#begin WALL CONTACT INVERTED.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -386,9 +386,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:WALL JUMP.png
+/build:WALL CONTACT INVERTED.png
 
-#begin WALL SLIDE.png
+#begin WALL SLIDE INV.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -398,7 +398,19 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:WALL SLIDE.png
+/build:WALL SLIDE INV.png
+
+#begin WALL SLIDE INVERTED.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:WALL SLIDE INVERTED.png
 
 #begin WIND.png
 /importer:TextureImporter

@@ -6,6 +6,9 @@ namespace slasher;
 
 public class PlayerStateData
 {
+    public float SlidingSpeed = 25f;
+    public bool WallJumpBlocked = false;
+    public bool WallJump;
     public float MoveSpeed = 400f;
     public bool IsJumpPressed;
     public bool IsLeftPressed;

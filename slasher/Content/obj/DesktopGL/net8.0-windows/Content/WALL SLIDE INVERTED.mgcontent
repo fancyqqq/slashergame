@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/eldm5/source/repos/slasher/slasher/Content/WALL CONTACT.png</SourceFile>
-  <SourceTime>2024-10-12T15:59:20.7937969+05:00</SourceTime>
-  <DestFile>C:/Users/eldm5/source/repos/slasher/slasher/Content/bin/Windows/WALL CONTACT.xnb</DestFile>
-  <DestTime>2025-06-06T00:52:05.008245+05:00</DestTime>
+  <SourceFile>C:/Users/eldm5/source/repos/slasher/slasher/Content/WALL SLIDE INVERTED.png</SourceFile>
+  <SourceTime>2025-06-06T03:04:41.7882354+05:00</SourceTime>
+  <DestFile>C:/Users/eldm5/source/repos/slasher/slasher/Content/bin/DesktopGL/Content/WALL SLIDE INVERTED.xnb</DestFile>
+  <DestTime>2025-06-06T03:10:55.5357705+05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2025-04-05T15:10:54+05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

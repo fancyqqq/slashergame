@@ -36,11 +36,15 @@
     <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/SPECIAL ATTACK.png</File>
     <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/Tileset.png</File>
     <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/Trees.png</File>
-    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/WALL CONTACT.png</File>
-    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/WALL SLIDE.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/WALL CONTACT INV.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/WALL CONTACT INVERTED.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/WALL SLIDE INV.png</File>
+    <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/WALL SLIDE INVERTED.png</File>
     <File>C:/Users/eldm5/source/repos/slasher/slasher/Content/WIND.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

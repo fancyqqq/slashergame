@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/eldm5/source/repos/slasher/slasher/Content/WALL SLIDE.png</SourceFile>
-  <SourceTime>2024-10-12T15:59:20.5685655+05:00</SourceTime>
-  <DestFile>C:/Users/eldm5/source/repos/slasher/slasher/Content/bin/Windows/WALL SLIDE.xnb</DestFile>
-  <DestTime>2025-06-06T00:52:05.0102982+05:00</DestTime>
+  <SourceFile>C:/Users/eldm5/source/repos/slasher/slasher/Content/WALL SLIDE INV.png</SourceFile>
+  <SourceTime>2025-06-06T03:13:02.8809969+05:00</SourceTime>
+  <DestFile>C:/Users/eldm5/source/repos/slasher/slasher/Content/bin/DesktopGL/Content/WALL SLIDE INV.xnb</DestFile>
+  <DestTime>2025-06-06T03:15:01.3510488+05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2025-04-05T15:10:54+05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

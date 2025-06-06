@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -73,7 +74,9 @@ public class Game1 : Game
     
         var inputReader = new InputReader(_stateMachineInitialization.PlayerStateData);
         inputReader.Read(ks, ms);
-
+        
+        Console.WriteLine(_stateMachineInitialization.PlayerStateMachine.currentStates);
+        
         //_stateMachineInitialization.StateHandleChain.HandleState(gameTime);
         _stateMachineInitialization.PlayerStateMachine.currentStates?.OnUpdateBehavior();
     
@@ -93,21 +96,21 @@ public class Game1 : Game
 
     _player.Draw(_spriteBatch);
 
-    DrawRectHollow(_spriteBatch, _player.BoundingBox, 2, Color.Red);
-
-    var predictiveBoxes = new List<Rectangle>
-    {
-        new Rectangle(_player.BoundingBox.Left - _player.StateData.TileSize, _player.BoundingBox.Y, _player.StateData.TileSize, _player.BoundingBox.Height),
-        new Rectangle(_player.BoundingBox.Right, _player.BoundingBox.Y, _player.StateData.TileSize, _player.BoundingBox.Height),
-        new Rectangle(_player.BoundingBox.X, _player.BoundingBox.Top - _player.StateData.TileSize, _player.BoundingBox.Width, _player.StateData.TileSize),
-        new Rectangle(_player.BoundingBox.X, _player.BoundingBox.Bottom, _player.BoundingBox.Width, _player.StateData.TileSize),
-        new Rectangle(_player.BoundingBox.Left - _player.StateData.TileSize, _player.BoundingBox.Top - _player.StateData.TileSize, _player.StateData.TileSize, _player.StateData.TileSize),
-        new Rectangle(_player.BoundingBox.Right, _player.BoundingBox.Top - _player.StateData.TileSize, _player.StateData.TileSize, _player.StateData.TileSize)
-    };
-    foreach (var box in predictiveBoxes)
-    {
-        DrawRectHollow(_spriteBatch, box, 1, Color.Green);
-    }
+    // DrawRectHollow(_spriteBatch, _player.BoundingBox, 2, Color.Red);
+    //
+    // var predictiveBoxes = new List<Rectangle>
+    // {
+    //     new Rectangle(_player.BoundingBox.Left - _player.StateData.TileSize, _player.BoundingBox.Y, _player.StateData.TileSize, _player.BoundingBox.Height),
+    //     new Rectangle(_player.BoundingBox.Right, _player.BoundingBox.Y, _player.StateData.TileSize, _player.BoundingBox.Height),
+    //     new Rectangle(_player.BoundingBox.X, _player.BoundingBox.Top - _player.StateData.TileSize, _player.BoundingBox.Width, _player.StateData.TileSize),
+    //     new Rectangle(_player.BoundingBox.X, _player.BoundingBox.Bottom, _player.BoundingBox.Width, _player.StateData.TileSize),
+    //     new Rectangle(_player.BoundingBox.Left - _player.StateData.TileSize, _player.BoundingBox.Top - _player.StateData.TileSize, _player.StateData.TileSize, _player.StateData.TileSize),
+    //     new Rectangle(_player.BoundingBox.Right, _player.BoundingBox.Top - _player.StateData.TileSize, _player.StateData.TileSize, _player.StateData.TileSize)
+    // };
+    // foreach (var box in predictiveBoxes)
+    // {
+    //     DrawRectHollow(_spriteBatch, box, 1, Color.Green);
+    // }
 
     _spriteBatch.End();
 

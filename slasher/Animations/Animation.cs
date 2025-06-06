@@ -2,66 +2,67 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace slasher;
-
-public class Animation
+namespace slasher
 {
-    private List<Texture2D> _frames;
-    private float _frameTime;
-    private float _timer;
-    private int _currentFrame;
-
-    public bool IsLooping { get; set; } = true;
-    public bool IsFinished => !IsLooping && _currentFrame >= _frames.Count - 1;
-    public Texture2D CurrentFrame => _frames[_currentFrame];
-    public Rectangle Hitbox { get; private set; }
-
-    public Animation(Texture2D spriteSheet, int frameCount, float frameDuration, int spriteSize, GraphicsDevice graphicsDevice, Rectangle hitbox)
+    public class Animation
     {
-        _frames = new List<Texture2D>();
-        _frameTime = frameDuration;
-        Hitbox = hitbox;
+        public string Name { get; }
 
-        int cellSize = 96;
-        int offset = (cellSize - spriteSize) / 2;
+        private List<Texture2D> _frames;
+        private float _frameTime;
+        private float _timer;
+        private int _currentFrame;
 
-        for (int i = 0; i < frameCount; i++)
+        public bool IsLooping { get; set; } = true;
+        public bool IsFinished => !IsLooping && _currentFrame >= _frames.Count - 1;
+        public Texture2D CurrentFrame => _frames[_currentFrame];
+        public Rectangle Hitbox { get; private set; }
+
+        public Animation(string name, Texture2D spriteSheet, int frameCount, float frameDuration, int spriteSize, GraphicsDevice graphicsDevice, Rectangle hitbox)
         {
-            int x = i * cellSize + offset;
-            int y = offset;
+            Name = name;
+            _frames = new List<Texture2D>();
+            _frameTime = frameDuration;
+            Hitbox = hitbox;
 
-            Rectangle sourceRect = new Rectangle(x, y, spriteSize, spriteSize);
+            int cellSize = 96;
+            int offset = (cellSize - spriteSize) / 2;
 
-            Texture2D frame = new Texture2D(graphicsDevice, spriteSize, spriteSize);
-            Color[] data = new Color[spriteSize * spriteSize];
-            spriteSheet.GetData(0, sourceRect, data, 0, data.Length);
-            frame.SetData(data);
-
-            _frames.Add(frame);
-        }
-    }
-
-    public void Update(GameTime gameTime)
-    {
-        if (IsFinished) return;
-
-        _timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-        if (_timer >= _frameTime)
-        {
-            _timer = 0f;
-            _currentFrame++;
-
-            if (_currentFrame >= _frames.Count)
+            for (int i = 0; i < frameCount; i++)
             {
-                _currentFrame = IsLooping ? 0 : _frames.Count - 1;
+                int x = i * cellSize + offset;
+                int y = offset;
+
+                Rectangle sourceRect = new Rectangle(x, y, spriteSize, spriteSize);
+                Texture2D frame = new Texture2D(graphicsDevice, spriteSize, spriteSize);
+                Color[] data = new Color[spriteSize * spriteSize];
+                spriteSheet.GetData(0, sourceRect, data, 0, data.Length);
+                frame.SetData(data);
+
+                _frames.Add(frame);
             }
         }
-    }
 
-    public void Reset()
-    {
-        _currentFrame = 0;
-        _timer = 0f;
+        public void Update(GameTime gameTime)
+        {
+            if (IsFinished) return;
+
+            _timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            if (_timer >= _frameTime)
+            {
+                _timer = 0f;
+                _currentFrame++;
+
+                if (_currentFrame >= _frames.Count)
+                    _currentFrame = IsLooping ? 0 : _frames.Count - 1;
+            }
+        }
+
+        public void Reset()
+        {
+            _currentFrame = 0;
+            _timer = 0f;
+        }
     }
 }

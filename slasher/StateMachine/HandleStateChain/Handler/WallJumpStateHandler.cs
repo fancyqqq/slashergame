@@ -16,7 +16,8 @@ public class WallJumpStateHandler : IStateHandle
     public bool CanHandle()
     {
         bool canWallJump = _stateData.IsTouchingWall(StateMachine.Player) && !_stateData.IsGrounded;
-        bool canHandle = canWallJump && StateMachine.Player.State is not (PlayerState.Dash or PlayerState.AirAttack);
+        bool canHandle = canWallJump && !_stateData.WallJumpBlocked &&
+                         StateMachine.Player.State is not (PlayerState.Dash or PlayerState.AirAttack);
         System.Diagnostics.Debug.WriteLine("canWallJump: " + canHandle);
         return canHandle;
     }

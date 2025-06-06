@@ -54,6 +54,8 @@ public class Player
     public bool IsFacingRight => _stateData.IsFacingRight;
     public Animation CurrentAnimation => _animation.CurrentAnimation;
     public GameTime GameTime => _gameTime;
+    public bool IsAnimationLocked { get; set; }
+
 
     public Player(ContentManager content, GraphicsDevice graphicsDevice, TiledMapTileLayer collisionLayer, int tileSize, int groundY)
     {
@@ -84,7 +86,6 @@ public class Player
         ApplyPhysics(gameTime);
 
         _velocity = _stateData.Velocity;
-        _animation.UpdateAnimationState(_state, _velocity, IsJumping, IsDashing);
         _animation.Update(gameTime);
     }
 

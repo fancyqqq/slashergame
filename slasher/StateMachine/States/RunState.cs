@@ -16,7 +16,6 @@ public class RunState : PlayerBaseState
 
     public override void OnEnter()
     {
-        System.Diagnostics.Debug.WriteLine("зашли в ран");
         Player.SetStateAndAnimation(PlayerState.Run, "run");
     }
 
@@ -35,5 +34,6 @@ public class RunState : PlayerBaseState
         MachineInitialization.StateHandleChain.HandleState<DashStateHandler>();
         MachineInitialization.StateHandleChain.HandleState<DefendStateHandler>();
         MachineInitialization.StateHandleChain.HandleState<SpecialAttackStateHandler>();
+        MachineInitialization.StateHandleChain.HandleState<WallJumpStateHandler>();
     }
 }

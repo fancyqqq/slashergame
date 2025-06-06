@@ -78,5 +78,7 @@ C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\hit
 C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\hitboxes_0.xnb
 C:\Users\eldm5\source\repos\slasher\slasher\obj\Debug\net8.0-windows\slasher.sourcelink.json
 C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\slasher_map_with_walls.xnb
-C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\WALL CONTACT.xnb
-C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\WALL SLIDE.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\WALL CONTACT INVERTED.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\WALL SLIDE INVERTED.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\WALL CONTACT INV.xnb
+C:\Users\eldm5\source\repos\slasher\slasher\bin\Debug\net8.0-windows\Content\WALL SLIDE INV.xnb

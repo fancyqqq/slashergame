@@ -21,7 +21,11 @@ public class JumpState : PlayerBaseState
             case JumpPhase.None:
                 Player.SetStateAndAnimation(PlayerState.Jump, "jump_start");
                 Data.CurrentJumpPhase = JumpPhase.Start;
-                Player.Velocity = new Vector2(Data.Velocity.X, _jumpForce);
+                if (Data.WallJump)
+                    Player.Velocity = Player.IsFacingRight ? new Vector2(-300, _jumpForce) : new Vector2(300, _jumpForce);
+                else
+                    Player.Velocity = new Vector2(Data.Velocity.X, _jumpForce);
+                Data.WallJump = false;
                 break;
 
             case JumpPhase.Transition:
@@ -42,6 +46,10 @@ public class JumpState : PlayerBaseState
 
     public override void OnUpdateBehavior()
     {
+        if (!Data.IsTouchingWall(Player))
+        {
+            Data.WallJumpBlocked = false;
+        }
         System.Diagnostics.Debug.WriteLine("Jump State");
         switch (Data.CurrentJumpPhase)
         {
